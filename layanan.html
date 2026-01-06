@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layanan & Harga - Barbershop Modern</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* ================= VARIABLES & RESET ================= */
+        :root {
+            --dark: #0f0f0f;
+            /* Hitam Pekat untuk Section Utama */
+            --dark2: #1a1a1a;
+            /* Abu-abu gelap untuk elemen Card */
+            --dark-alt: #2a2a2a;
+            /* Abu-abu yang lebih terang dan kontras */
+
+            --gold: #d4af37;
+            --white: #f5f5f5;
+            --gray: #a0a0a0;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--white);
+            font-family: var(--font-body);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ================= UTILITIES ================= */
+        .btn {
+            background: var(--gold);
+            color: #000;
+            padding: 12px 30px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        /* ================= NAVBAR ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav h1 {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--white);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        nav .btn {
+            padding: 8px 20px;
+            font-size: 12px;
+        }
+
+        /* ================= PAGE HEADER ================= */
+        .page-header {
+            padding: 160px 8% 80px;
+            background: linear-gradient(to bottom, rgba(15, 15, 15, 0.9), var(--dark)),
+                url("https://images.unsplash.com/photo-1503951914875-befbb6470523?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat;
+            text-align: center;
+        }
+
+        .page-header h2 {
+            font-family: var(--font-head);
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .page-header p {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ================= SECTION COMMON ================= */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h3 {
+            font-family: var(--font-head);
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .section-title span {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            display: inline-block;
+        }
+
+        /* ================= SECTION 1: PAKET FAVORIT ================= */
+        .favorite-section {
+            background-color: var(--dark);
+            border-bottom: 1px solid #222;
+        }
+
+        .services-detail {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--dark2);
+            padding: 40px;
+            border-radius: 8px;
+            transition: 0.3s;
+            border: 1px solid #333;
+        }
+
+        .service-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .service-card h4 {
+            font-family: var(--font-head);
+            font-size: 22px;
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 14px;
+            color: var(--gray);
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .service-price {
+            font-size: 24px;
+            color: var(--gold);
+            font-weight: 700;
+            font-family: var(--font-head);
+        }
+
+        /* ================= SECTION 2: DAFTAR HARGA ================= */
+        .pricing-section {
+            background-color: var(--dark-alt);
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+
+        .pricing-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .pricing-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px dashed #555;
+        }
+
+        .pricing-item:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-info h5 {
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 5px;
+            font-family: var(--font-head);
+        }
+
+        .pricing-info span {
+            font-size: 13px;
+            color: #ccc;
+        }
+
+        .pricing-cost {
+            font-size: 20px;
+            color: var(--gold);
+            font-weight: bold;
+            font-family: var(--font-head);
+        }
+
+        /* ================= CTA ================= */
+        .cta {
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+                url("https://images.unsplash.com/photo-1621605810052-8094b3f96bfa?q=80&w=2000&auto=format&fit=crop") center/cover fixed;
+            padding: 100px 8%;
+            text-align: center;
+        }
+
+        .cta h3 {
+            font-family: var(--font-head);
+            font-size: 36px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #080808;
+            color: var(--gray);
+            padding: 70px 8% 30px;
+            border-top: 1px solid #222;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-family: var(--font-head);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+            margin-top: 10px;
+        }
+
+        .footer-col p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #888;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #888;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* ================= MOBILE RESPONSIVE ================= */
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav .btn {
+                display: none;
+            }
+
+            .page-header h2 {
+                font-size: 36px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 60px 5% 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1>BARBERSHOP</h1>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="layanan.html" class="active">Layanan</a></li>
+            <li><a href="#">Barbers</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">Blog</a></li>
+        </ul>
+        <a href="#" class="btn">Booking Now</a>
+    </nav>
+
+    <header class="page-header">
+        <h2>Layanan & Harga</h2>
+        <p>Kami menyediakan berbagai paket grooming terbaik untuk menunjang penampilan dan kepercayaan diri Anda.</p>
+    </header>
+
+    <section class="favorite-section">
+        <div class="section-title">
+            <h3>Paket Favorit</h3>
+            <span></span>
+        </div>
+
+        <div class="services-detail">
+            <div class="service-card">
+                <h4>Haircut</h4>
+                <p>Potongan rambut detail sesuai bentuk wajah, termasuk cuci rambut dan pijat kepala ringan untuk
+                    relaksasi.</p>
+                <div class="service-price">Rp 50K+</div>
+            </div>
+
+            <div class="service-card">
+                <h4>Hair Styling</h4>
+                <p>Penataan rambut profesional menggunakan produk pomade/wax premium untuk tampilan maksimal seharian
+                    penuh.</p>
+                <div class="service-price">Rp 60K+</div>
+            </div>
+
+            <div class="service-card">
+                <h4>Beard Trim</h4>
+                <p>Merapikan dan membentuk jenggot serta kumis agar terlihat bersih, rapi, dan maskulin dengan handuk
+                    hangat.</p>
+                <div class="service-price">Rp 45K+</div>
+            </div>
+
+            <div class="service-card">
+                <h4>Kids Haircut</h4>
+                <p>Potongan rambut khusus anak-anak dengan penanganan sabar dan ramah. Termasuk styling agar si kecil
+                    tampil keren.</p>
+                <div class="service-price">Rp 40K+</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section">
+        <div class="section-title">
+            <h3>Daftar Harga Lengkap</h3>
+            <span></span>
+        </div>
+
+        <div class="pricing-list">
+            <div class="pricing-item">
+                <div class="pricing-info">
+                    <h5>Regular Haircut</h5>
+                    <span>Potong, Cuci, Styling</span>
+                </div>
+                <div class="pricing-cost">Rp 50K</div>
+            </div>
+            <div class="pricing-item">
+                <div class="pricing-info">
+                    <h5>Beard Trim & Shave</h5>
+                    <span>Merapikan jenggot & kumis dengan handuk hangat</span>
+                </div>
+                <div class="pricing-cost">Rp 35K</div>
+            </div>
+            <div class="pricing-item">
+                <div class="pricing-info">
+                    <h5>Hair Coloring (Basic)</h5>
+                    <span>Pewarnaan rambut hitam / coklat natural</span>
+                </div>
+                <div class="pricing-cost">Rp 100K+</div>
+            </div>
+            <div class="pricing-item">
+                <div class="pricing-info">
+                    <h5>Hair Tattoo / Skin Fade</h5>
+                    <span>Ukiran rambut artistik</span>
+                </div>
+                <div class="pricing-cost">Rp 75K</div>
+            </div>
+            <div class="pricing-item">
+                <div class="pricing-info">
+                    <h5>Black Mask Treatment</h5>
+                    <span>Mengangkat komedo dan kotoran wajah</span>
+                </div>
+                <div class="pricing-cost">Rp 30K</div>
+            </div>
+            <div class="pricing-item">
+                <div class="pricing-info">
+                    <h5>Premium Pomade</h5>
+                    <span>Produk styling tambahan (Take Home)</span>
+                </div>
+                <div class="pricing-cost">Rp 85K</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <h3>Sudah Menentukan Pilihan?</h3>
+        <p style="margin-bottom: 30px; color: #ddd;">Booking slot Anda sekarang dan hindari antrian.</p>
+        <a href="#" class="btn">Booking via WhatsApp</a>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Barbershop</h4>
+                <p>Tempat cukur rambut pria modern dengan pelayanan premium dan hasil potongan yang detail. Tampil
+                    percaya diri setiap hari.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="layanan.html">Layanan</a></li>
+                    <li><a href="#">Barbers</a></li>
+                    <li><a href="#">Galeri Foto</a></li>
+                    <li><a href="#">Artikel / Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Regular Haircut</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Beard Trim & Shave</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Coloring (Basic)</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Tattoo / Skin Fade</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Black Mask Treatment</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Premium Pomade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Network</h4>
+                <ul>
+                    <li><a href="#">Network 1</a></li>
+                    <li><a href="#">Network 2</a></li>
+                    <li><a href="#">Network 3</a></li>
+                    <li><a href="#">Network 4</a></li>
+                    <li><a href="#">Network 5</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li>📍 Jl. Veteran No. 45, Malang</li>
+                    <li>📞 0812-3456-7890</li>
+                    <li>✉️ hello@barbershop.com</li>
+                    <li style="margin-top: 15px;">
+                        <a href="#" style="color: var(--gold); font-weight: bold;">Chat WhatsApp &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Barbershop Modern. All Rights Reserved. Designed with Class.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
