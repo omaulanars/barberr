@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5 Model Rambut Pria Tren 2026 - Barbershop Modern</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* ================= VARIABLES & RESET ================= */
+        :root {
+            --dark: #0f0f0f;
+            --dark2: #1a1a1a;
+            --dark-alt: #2a2a2a;
+            --gold: #d4af37;
+            --white: #f5f5f5;
+            --gray: #a0a0a0;
+            --font-head: 'Montserrat', sans-serif;
+            --font-body: 'Poppins', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--dark);
+            color: var(--white);
+            font-family: var(--font-body);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ================= UTILITIES ================= */
+        .btn {
+            background: var(--gold);
+            color: #000;
+            padding: 12px 30px;
+            font-family: var(--font-head);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 14px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            border: 2px solid var(--gold);
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: transparent;
+            color: var(--gold);
+        }
+
+        /* ================= NAVBAR ================= */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 15, 15, 0.95);
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 8%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav h1 {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            color: var(--white);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+        }
+
+        nav ul li a {
+            font-size: 14px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--gray);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--gold);
+        }
+
+        nav .btn {
+            padding: 8px 20px;
+            font-size: 12px;
+        }
+
+        /* ================= BLOG DETAIL LAYOUT (WIDE) ================= */
+        .blog-wrapper {
+            padding: 140px 8% 80px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* 2. HEADER ARTIKEL */
+        .article-header {
+            text-align: center;
+            margin-bottom: 50px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .article-meta {
+            color: var(--gold);
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .article-header h1 {
+            font-family: var(--font-head);
+            font-size: 42px;
+            line-height: 1.3;
+            margin-bottom: 20px;
+        }
+
+        .article-img-top {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin-bottom: 50px;
+        }
+
+        /* 3. TABLE OF CONTENT */
+        .toc-box {
+            background: var(--dark2);
+            border: 1px solid var(--gold);
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 50px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .toc-toggle {
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            color: var(--gold);
+            font-family: var(--font-head);
+            font-size: 18px;
+        }
+
+        .toc-list {
+            list-style: decimal;
+            margin-top: 15px;
+            padding-left: 20px;
+            display: none;
+            border-top: 1px solid #333;
+            padding-top: 15px;
+        }
+
+        .toc-list li {
+            margin-bottom: 8px;
+            color: var(--gray);
+        }
+
+        .toc-list li a:hover {
+            color: var(--white);
+            text-decoration: underline;
+        }
+
+        /* 4. CONTENT STYLING */
+        .article-content {
+            font-size: 18px;
+            color: #ddd;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .article-content h2 {
+            font-family: var(--font-head);
+            color: var(--white);
+            margin-top: 50px;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        .article-content p {
+            margin-bottom: 25px;
+        }
+
+        .read-also {
+            background: #151515;
+            border-left: 4px solid var(--gold);
+            padding: 20px;
+            margin: 40px 0;
+            font-style: italic;
+        }
+
+        .read-also a {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        blockquote {
+            font-family: var(--font-head);
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+            margin: 60px 0;
+            padding: 30px;
+            border-top: 2px solid var(--gold);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .article-img-bottom {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 50px 0;
+        }
+
+        /* 5. FAQ SECTION */
+        .faq-section {
+            margin-top: 60px;
+            background: var(--dark2);
+            padding: 40px;
+            border-radius: 15px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .faq-section h3 {
+            font-family: var(--font-head);
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 20px;
+        }
+
+        .faq-item h4 {
+            font-size: 18px;
+            color: var(--white);
+            margin-bottom: 8px;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            color: var(--gray);
+            margin: 0;
+        }
+
+        /* 6. SOCIAL SHARE */
+        .share-section {
+            margin-top: 80px;
+            text-align: center;
+            border-top: 1px solid #333;
+            padding-top: 40px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .share-section span {
+            display: block;
+            margin-bottom: 20px;
+            color: var(--gray);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .share-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .share-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--dark2);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            border: 1px solid #333;
+            transition: 0.3s;
+            font-size: 20px;
+        }
+
+        .share-icon:hover {
+            background: var(--gold);
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        /* 7. AUTHOR PROFILE (NEW) */
+        .author-box {
+            margin-top: 60px;
+            background: var(--dark2);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid #333;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .author-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--gold);
+        }
+
+        .author-info h4 {
+            font-family: var(--font-head);
+            color: var(--white);
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+
+        .author-info span {
+            color: var(--gold);
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .author-info p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        /* ================= RELATED ARTICLES ================= */
+        .related-wrapper {
+            background: var(--dark-alt);
+            padding: 80px 8%;
+            border-top: 1px solid #333;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h3 {
+            font-family: var(--font-head);
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .section-title span {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            display: inline-block;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .blog-card {
+            background: var(--dark2);
+            border: 1px solid #333;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .blog-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s;
+        }
+
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .blog-meta {
+            font-size: 12px;
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .blog-content h3 {
+            font-family: var(--font-head);
+            font-size: 22px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .blog-content h3 a {
+            color: var(--white);
+        }
+
+        .blog-content h3 a:hover {
+            color: var(--gold);
+        }
+
+        .blog-content p {
+            font-size: 15px;
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .read-more {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        /* ================= FOOTER ================= */
+        footer {
+            background: #080808;
+            color: var(--gray);
+            padding: 70px 8% 30px;
+            border-top: 1px solid #222;
+            font-size: 14px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+            text-align: left;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            font-family: var(--font-head);
+            font-size: 16px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            display: block;
+            width: 30px;
+            height: 2px;
+            background: var(--gold);
+            margin-top: 10px;
+        }
+
+        .footer-col p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            color: #888;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #888;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--gold);
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #222;
+            padding-top: 25px;
+            text-align: center;
+            font-size: 13px;
+            color: #555;
+        }
+
+        /* ================= RESPONSIVE ================= */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 13px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav .btn {
+                display: none;
+            }
+
+            .blog-wrapper {
+                padding: 100px 5% 60px;
+            }
+
+            .article-header h1 {
+                font-size: 28px;
+            }
+
+            .article-content {
+                font-size: 16px;
+            }
+
+            .article-img-top,
+            .article-img-bottom {
+                height: 250px;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 60px 5% 30px;
+            }
+
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <h1>BARBERSHOP</h1>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="layanan.html">Layanan</a></li>
+            <li><a href="barber.html">Barbers</a></li>
+            <li><a href="galeri.html">Galeri Foto</a></li>
+            <li><a href="blog.html" class="active">Blog</a></li>
+        </ul>
+        <a href="#" class="btn">Booking Now</a>
+    </nav>
+
+    <div class="blog-wrapper">
+
+        <div class="article-header">
+            <div class="article-meta">Tren • 5 Jan 2026 • Oleh Satria</div>
+            <h1>5 Model Rambut Pria yang Akan Tren di Tahun 2026</h1>
+            <p style="color: var(--gray);">Mulai dari gaya klasik yang kembali hits hingga potongan modern yang edgy.
+                Temukan gaya barumu di sini.</p>
+        </div>
+
+        <img src="img/artikel1.jpg" alt="Tren Rambut 2026" class="article-img-top">
+
+        <div class="toc-box">
+            <div class="toc-toggle" onclick="toggleToc()">
+                Daftar Isi Artikel
+                <i class="fas fa-chevron-down" id="tocIcon"></i>
+            </div>
+            <ul class="toc-list" id="tocList">
+                <li><a href="#trend1">1. The Neo Mullet</a></li>
+                <li><a href="#trend2">2. Textured French Crop</a></li>
+                <li><a href="#trend3">3. Classic Taper Fade</a></li>
+                <li><a href="#trend4">4. Messy Quiff</a></li>
+                <li><a href="#trend5">5. Buzz Cut with Design</a></li>
+            </ul>
+        </div>
+
+        <div class="article-content">
+            <p>Tahun 2026 membawa angin segar dalam dunia grooming pria. Kita melihat perpaduan antara gaya retro tahun
+                80-an dengan sentuhan teknik cukur modern yang presisi. Jika Anda bosan dengan gaya rambut yang itu-itu
+                saja, saatnya mencoba sesuatu yang baru.</p>
+
+            <div class="read-also">
+                Baca Juga: <a href="blog-detail-2.html">Cara Merawat Jenggot Agar Lebat dan Rapi (Tips 2026)</a>
+            </div>
+
+            <h2 id="trend1">1. The Neo Mullet</h2>
+            <p>Mullet kembali lagi, tapi kali ini lebih rapi. Bagian samping dibuat fade halus, sementara bagian
+                belakang dibiarkan panjang namun bertekstur. Cocok untuk Anda yang ingin tampil beda dan berani.</p>
+
+            <h2 id="trend2">2. Textured French Crop</h2>
+            <p>Untuk pria yang tidak suka ribet styling, French Crop tetap menjadi raja. Di tahun 2026, teksturnya
+                dibuat lebih "messy" di bagian atas untuk kesan natural dan effortless.</p>
+
+            <blockquote>
+                "Gaya rambut bukan sekadar tren, tapi cerminan kepribadian. Pilih yang membuatmu merasa paling percaya
+                diri."
+            </blockquote>
+
+            <h2 id="trend3">3. Classic Taper Fade</h2>
+            <p>Klasik tidak pernah mati. Taper fade yang bersih dengan sisiran rapi ke samping adalah pilihan aman untuk
+                profesional muda yang ingin terlihat elegan di kantor.</p>
+
+            <img src="img/1artikel.jpg" alt="Proses Cukur" class="article-img-bottom">
+
+            <h2 id="trend4">4. Messy Quiff</h2>
+            <p>Quiff yang bervolume tinggi di depan memberikan ilusi wajah yang lebih panjang dan proporsional. Gunakan
+                clay atau matte wax untuk hasil akhir yang tidak mengkilap.</p>
+
+            <h2 id="trend5">5. Buzz Cut with Design</h2>
+            <p>Potongan super pendek (cepak) kini dipermanis dengan garis rambut (hair tattoo) geometris di bagian
+                samping atau belakang. Simpel, maskulin, namun artistik.</p>
+        </div>
+
+        <div class="faq-section">
+            <h3>Pertanyaan Umum (FAQ)</h3>
+            <div class="faq-item">
+                <h4>Gaya mana yang cocok untuk wajah bulat?</h4>
+                <p>Kami menyarankan Textured French Crop atau Messy Quiff untuk memberikan dimensi vertikal pada wajah.
+                </p>
+            </div>
+            <div class="faq-item">
+                <h4>Seberapa sering saya harus cukur untuk menjaga gaya ini?</h4>
+                <p>Untuk gaya fade dan buzz cut, disarankan cukur setiap 2-3 minggu sekali agar tetap rapi.</p>
+            </div>
+        </div>
+
+        <div class="author-box">
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200&auto=format&fit=crop"
+                alt="Satria" class="author-img">
+            <div class="author-info">
+                <h4>Satria</h4>
+                <span>Senior Barber & Content Writer</span>
+                <p>Berpengalaman lebih dari 8 tahun di industri grooming pria. Satria hobi berbagi tips seputar gaya
+                    rambut klasik dan modern untuk membantu pria tampil lebih percaya diri setiap hari.</p>
+            </div>
+        </div>
+
+        <div class="share-section">
+            <span>Bagikan Artikel Ini:</span>
+            <div class="share-icons">
+                <a href="#" class="share-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="share-icon"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="share-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" class="share-icon"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="related-wrapper">
+        <div class="section-title">
+            <h3>Artikel Lainnya</h3>
+            <span></span>
+        </div>
+
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="img/artikel2.jpg" alt="Perawatan Jenggot">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Tips • 28 Des 2025</div>
+                    <h3><a href="blog-detail-2.html">Cara Merawat Jenggot Agar Lebat dan Rapi</a></h3>
+                    <p>Jenggot bukan sekadar bulu wajah. Simak tips penggunaan beard oil dan teknik trimming yang benar.
+                    </p>
+                    <a href="blog-detail-2.html" class="read-more">Baca Selengkapnya <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="img/artikel3.jpg" alt="Barbershop Routine">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Lifestyle • 10 Des 2025</div>
+                    <h3><a href="blog-detail-3.html">Kenapa Kamu Harus Cukur Rambut Secara Rutin?</a></h3>
+                    <p>Menjaga penampilan tetap prima bukan satu-satunya alasan. Cukur rutin juga menjaga kesehatan
+                        kulit kepala.</p>
+                    <a href="blog-detail-3.html" class="read-more">Baca Selengkapnya <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Barbershop</h4>
+                <p>Tempat cukur rambut pria modern dengan pelayanan premium dan hasil potongan yang detail. Tampil
+                    percaya diri setiap hari.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                    <li><a href="index.html">Beranda</a></li>
+                    <li><a href="layanan.html">Layanan</a></li>
+                    <li><a href="barber.html">Barbers</a></li>
+                    <li><a href="galeri.html">Galeri Foto</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Layanan</h4>
+                <ul>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Regular Haircut</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Beard Trim & Shave</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Coloring (Basic)</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Tattoo / Skin Fade</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Black Mask Treatment</a></li>
+                    <li><a href="javascript:void(0)" style="cursor: default;">Premium Pomade</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Network</h4>
+                <ul>
+                    <li><a href="#">Network 1</a></li>
+                    <li><a href="#">Network 2</a></li>
+                    <li><a href="#">Network 3</a></li>
+                    <li><a href="#">Network 4</a></li>
+                    <li><a href="#">Network 5</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li>📍 Jl. Veteran No. 45, Malang</li>
+                    <li>📞 0812-3456-7890</li>
+                    <li>✉️ hello@barbershop.com</li>
+                    <li style="margin-top: 15px;">
+                        <a href="#" style="color: var(--gold); font-weight: bold;">Chat WhatsApp &rarr;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 Barbershop Modern. All Rights Reserved. Designed with Class.</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleToc() {
+            var tocList = document.getElementById("tocList");
+            var tocIcon = document.getElementById("tocIcon");
+
+            if (tocList.style.display === "none" || tocList.style.display === "") {
+                tocList.style.display = "block";
+                tocIcon.classList.remove("fa-chevron-down");
+                tocIcon.classList.add("fa-chevron-up");
+            } else {
+                tocList.style.display = "none";
+                tocIcon.classList.remove("fa-chevron-up");
+                tocIcon.classList.add("fa-chevron-down");
+            }
+        }
+    </script>
+
+</body>
+
+</html>

@@ -16,11 +16,11 @@
         /* ================= VARIABLES & RESET ================= */
         :root {
             --dark: #0f0f0f;
-            /* Hitam Pekat untuk Section Utama */
+            /* Hitam Pekat */
             --dark2: #1a1a1a;
-            /* Abu-abu gelap untuk elemen Card */
-            --dark-alt: #2a2a2a;
-            /* Abu-abu yang lebih terang dan kontras */
+            /* Warna Card */
+            --dark-alt: #181818;
+            /* Abu-abu Gelap untuk Section Selang-Seling */
 
             --gold: #d4af37;
             --white: #f5f5f5;
@@ -153,6 +153,15 @@
         /* ================= SECTION COMMON ================= */
         section {
             padding: 80px 8%;
+            background-color: var(--dark);
+            /* Default Hitam */
+        }
+
+        /* Class khusus untuk section berwarna Abu-abu Gelap (Selang-seling) */
+        .section-alt {
+            background-color: var(--dark-alt);
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
         }
 
         .section-title {
@@ -179,7 +188,7 @@
 
         /* ================= SECTION 1: PAKET FAVORIT ================= */
         .favorite-section {
-            background-color: var(--dark);
+            /* Menggunakan background default (hitam) */
             border-bottom: 1px solid #222;
         }
 
@@ -225,9 +234,7 @@
 
         /* ================= SECTION 2: DAFTAR HARGA ================= */
         .pricing-section {
-            background-color: var(--dark-alt);
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
+            /* Menggunakan .section-alt di HTML, style ini hanya override spesifik jika perlu */
         }
 
         .pricing-list {
@@ -400,9 +407,9 @@
         <ul>
             <li><a href="index.html">Beranda</a></li>
             <li><a href="layanan.html" class="active">Layanan</a></li>
-            <li><a href="#">Barbers</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="barber.html">Barbers</a></li>
+            <li><a href="galeri.html">Galeri Foto</a></li>
+            <li><a href="blog.html">Artikel / Blog</a></li>
         </ul>
         <a href="#" class="btn">Booking Now</a>
     </nav>
@@ -449,7 +456,7 @@
         </div>
     </section>
 
-    <section class="pricing-section">
+    <section class="pricing-section section-alt">
         <div class="section-title">
             <h3>Daftar Harga Lengkap</h3>
             <span></span>
@@ -520,9 +527,9 @@
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="layanan.html">Layanan</a></li>
-                    <li><a href="#">Barbers</a></li>
-                    <li><a href="#">Galeri Foto</a></li>
-                    <li><a href="#">Artikel / Blog</a></li>
+                    <li><a href="barber.html">Barbers</a></li>
+                    <li><a href="galeri.html">Galeri Foto</a></li>
+                    <li><a href="blog.html">Artikel / Blog</a></li>
                 </ul>
             </div>
 

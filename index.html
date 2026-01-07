@@ -17,6 +17,7 @@
         :root {
             --dark: #0f0f0f;
             --dark2: #1a1a1a;
+            --dark-alt: #181818;
             --gold: #d4af37;
             --white: #f5f5f5;
             --gray: #a0a0a0;
@@ -179,6 +180,13 @@
         /* ================= SECTION COMMON ================= */
         section {
             padding: 100px 8%;
+            background-color: var(--dark);
+        }
+
+        .section-alt {
+            background-color: var(--dark-alt);
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
         }
 
         .section-title {
@@ -429,8 +437,7 @@
 
         /* ================= CTA ================= */
         .cta {
-            background:
-                linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
+            background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
                 url("https://images.unsplash.com/photo-1621605810052-8094b3f96bfa?q=80&w=2000&auto=format&fit=crop") center/cover fixed;
             padding: 120px 8%;
             text-align: center;
@@ -514,23 +521,26 @@
             color: #555;
         }
 
-        /* ================= MOBILE RESPONSIVE ================= */
+        /* ================= MOBILE RESPONSIVE (OPTIMIZED) ================= */
         @media (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
-                /* Tablet jadi 3 kolom */
             }
         }
 
         @media (max-width: 768px) {
+
+            /* Navbar */
             nav {
                 flex-direction: column;
                 padding: 15px;
                 gap: 15px;
+                background: #0f0f0f;
+                /* Background solid agar tidak transparan di mobile */
             }
 
             nav ul {
-                gap: 20px;
+                gap: 15px;
                 font-size: 13px;
                 flex-wrap: wrap;
                 justify-content: center;
@@ -538,27 +548,41 @@
 
             nav .btn {
                 display: none;
+                /* Menyembunyikan tombol booking di nav bar atas */
             }
 
+            /* Hero */
             .hero {
+                /* Fix untuk iOS background fixed zoom issue */
+                background-attachment: scroll;
+                background-position: center;
                 text-align: center;
                 justify-content: center;
                 padding: 0 5%;
             }
 
-            .hero h2 {
-                font-size: 36px;
-            }
-
             .hero-content {
                 width: 100%;
-                padding-top: 120px;
+                padding-top: 100px;
+                /* Jarak dari navbar */
+            }
+
+            .hero h2 {
+                font-size: 32px;
+                /* Ukuran font lebih proporsional */
+                margin-bottom: 15px;
+            }
+
+            .hero p {
+                font-size: 16px;
+                margin-bottom: 30px;
             }
 
             .hero .btn-group {
                 justify-content: center;
                 flex-direction: column;
                 width: 100%;
+                gap: 15px;
             }
 
             .btn,
@@ -567,50 +591,87 @@
                 text-align: center;
             }
 
+            /* Section Padding */
             section {
-                padding: 60px 5%;
+                padding: 60px 6%;
             }
 
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .section-title h3 {
+                font-size: 28px;
+            }
+
+            /* Why Us (Gambar di atas teks) */
             .why {
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .why img {
                 order: -1;
                 margin-bottom: 20px;
-                height: 300px;
+                height: 250px;
             }
 
+            /* Gallery (2 Kolom) */
             .gallery {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: repeat(2, 1fr);
             }
 
+            .gallery img {
+                height: 180px;
+            }
+
+            /* Testimoni */
             .testimoni-container {
-                padding: 40px 20px 80px 20px;
+                padding: 40px 25px 90px 25px;
+                /* Padding bawah lebih besar untuk tombol */
             }
 
+            .testimoni-slide p {
+                font-size: 16px;
+            }
+
+            /* Posisi tombol slider di tengah bawah */
             .slider-btn {
                 top: auto;
-                bottom: 20px;
+                bottom: 25px;
                 transform: none;
             }
 
             .prev-btn {
-                left: 35%;
+                left: calc(50% - 60px);
+                /* Geser ke kiri dari tengah */
             }
 
             .next-btn {
-                right: 35%;
+                right: calc(50% - 60px);
+                /* Geser ke kanan dari tengah */
             }
 
-            /* Responsive Footer */
+            /* Footer */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
             footer {
-                padding: 60px 5% 30px;
+                padding: 60px 6% 30px;
+            }
+        }
+
+        /* Mobile Kecil */
+        @media (max-width: 480px) {
+            .gallery {
+                grid-template-columns: 1fr;
+                /* 1 Kolom untuk HP kecil */
+            }
+
+            .hero h2 {
+                font-size: 28px;
             }
         }
     </style>
@@ -624,8 +685,8 @@
             <li><a href="index.html">Beranda</a></li>
             <li><a href="layanan.html">Layanan</a></li>
             <li><a href="barber.html">Barbers</a></li>
-            <li><a href="galeri.html">Galeri Foto</a></li>
-            <li><a href="blog.html">Artikel / Blog</a></li>
+            <li><a href="galeri.html">Galeri</a></li>
+            <li><a href="blog.html">Blog</a></li>
         </ul>
         <a href="#" class="btn">Booking Now</a>
     </nav>
@@ -668,7 +729,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="section-alt">
         <div class="why">
             <div class="why-text">
                 <h3 style="font-family: var(--font-head); font-size: 28px; margin-bottom: 20px;">KENAPA KAMI?</h3>
@@ -709,7 +770,7 @@
         </div>
     </section>
 
-    <section>
+    <section class="section-alt">
         <div class="section-title">
             <h3>Galeri Kami</h3>
             <span></span>

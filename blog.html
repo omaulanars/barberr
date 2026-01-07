@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tim Barber - Barbershop Modern</title>
+    <title>Blog & Artikel - Barbershop Modern</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -128,7 +128,7 @@
         .page-header {
             padding: 160px 8% 80px;
             background: linear-gradient(to bottom, rgba(15, 15, 15, 0.9), var(--dark)),
-                url("https://images.unsplash.com/photo-1503951914875-befbb6470523?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat;
+                url("https://images.unsplash.com/photo-1521590832169-7dad1a9b708c?q=80&w=2000&auto=format&fit=crop") center/cover no-repeat;
             text-align: center;
         }
 
@@ -147,153 +147,145 @@
             margin: 0 auto;
         }
 
-        /* ================= SECTION COMMON ================= */
-        section {
-            padding: 80px 8%;
+        /* ================= SEARCH BAR ================= */
+        .search-section {
+            padding: 0 8% 40px;
+            margin-top: -30px;
+            /* Pull up overlap header */
+            position: relative;
+            z-index: 2;
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
+        .search-container {
+            max-width: 600px;
+            margin: 0 auto;
+            display: flex;
+            background: var(--dark2);
+            border: 1px solid #333;
+            border-radius: 50px;
+            padding: 5px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
-        .section-title h3 {
-            font-family: var(--font-head);
-            font-size: 36px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
+        .search-container input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 15px 25px;
             color: var(--white);
+            font-family: var(--font-body);
+            font-size: 16px;
+            outline: none;
         }
 
-        .section-title span {
-            width: 60px;
-            height: 4px;
+        .search-container button {
             background: var(--gold);
-            display: inline-block;
+            color: #000;
+            border: none;
+            width: 50px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: 0.3s;
         }
 
-        /* ================= TEAM SECTION ================= */
-        .team-grid {
+        .search-container button:hover {
+            background: #b59020;
+        }
+
+        /* ================= BLOG GRID ================= */
+        .blog-section {
+            padding: 40px 8% 100px;
+        }
+
+        .blog-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
         }
 
-        .team-card {
+        .blog-card {
             background: var(--dark2);
+            border: 1px solid #333;
             border-radius: 8px;
             overflow: hidden;
-            border: 1px solid #333;
             transition: 0.3s;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
         }
 
-        .team-card:hover {
+        .blog-card:hover {
             border-color: var(--gold);
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transform: translateY(-5px);
         }
 
-        .team-img-wrapper {
-            height: 400px;
+        .blog-img {
+            height: 220px;
             overflow: hidden;
-            position: relative;
         }
 
-        .team-img-wrapper img {
+        .blog-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(80%);
-            transition: 0.5s ease;
+            transition: 0.5s;
         }
 
-        .team-card:hover .team-img-wrapper img {
-            filter: grayscale(0%);
-            transform: scale(1.05);
+        .blog-card:hover .blog-img img {
+            transform: scale(1.1);
         }
 
-        .team-info {
-            padding: 30px;
+        .blog-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
 
-        .team-info h4 {
-            font-family: var(--font-head);
-            font-size: 24px;
-            color: var(--white);
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-
-        .team-role {
+        .blog-meta {
+            font-size: 12px;
             color: var(--gold);
-            font-size: 14px;
-            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 15px;
-            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
-        .team-desc {
+        .blog-content h3 {
+            font-family: var(--font-head);
+            font-size: 20px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .blog-content h3 a {
+            color: var(--white);
+        }
+
+        .blog-content h3 a:hover {
+            color: var(--gold);
+        }
+
+        .blog-content p {
             font-size: 14px;
             color: var(--gray);
-            margin-bottom: 25px;
-            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+            /* Push button to bottom */
         }
 
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .team-social a {
-            color: var(--white);
-            font-size: 18px;
-            width: 40px;
-            height: 40px;
-            border: 1px solid #444;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
-
-        .team-social a:hover {
-            background: var(--gold);
-            color: #000;
-            border-color: var(--gold);
-        }
-
-        /* ================= EXPERTISE / SKILLS ================= */
-        .skills-section {
-            background: var(--dark-alt);
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            text-align: center;
-        }
-
-        .skill-item h4 {
-            font-family: var(--font-head);
+        .read-more {
             color: var(--gold);
-            font-size: 48px;
-            margin-bottom: 10px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
         }
 
-        .skill-item p {
-            color: var(--white);
-            font-size: 16px;
-            font-weight: 500;
+        .read-more:hover {
+            gap: 10px;
+            /* Efek geser panah */
         }
 
         /* ================= CTA ================= */
@@ -411,11 +403,6 @@
                 font-size: 36px;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -435,105 +422,77 @@
         <ul>
             <li><a href="index.html">Beranda</a></li>
             <li><a href="layanan.html">Layanan</a></li>
-            <li><a href="barber.html" class="active">Barbers</a></li>
+            <li><a href="barber.html">Barbers</a></li>
             <li><a href="galeri.html">Galeri Foto</a></li>
-            <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html" class="active">Artikel / Blog</a></li>
         </ul>
         <a href="#" class="btn">Booking Now</a>
     </nav>
 
     <header class="page-header">
-        <h2>Tim Barber Kami</h2>
-        <p>Kenalan dengan para ahli di balik potongan rambut terbaik Anda. Profesional, berpengalaman, dan penuh gaya.
-        </p>
+        <h2>Artikel & Tips</h2>
+        <p>Tips perawatan rambut, tren gaya terbaru, dan info menarik seputar dunia grooming pria.</p>
     </header>
 
-    <section>
-        <div class="section-title">
-            <h3>Meet The Masters</h3>
-            <span></span>
+    <div class="search-section">
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cari artikel (misal: Jenggot, Rambut)..."
+                onkeyup="filterBlog()">
+            <button onclick="filterBlog()"><i class="fas fa-search"></i></button>
         </div>
+    </div>
 
-        <div class="team-grid">
-            <div class="team-card">
-                <div class="team-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?q=80&w=800&auto=format&fit=crop"
-                        alt="Pandu Barber">
+    <section class="blog-section">
+        <div class="blog-grid" id="blogGrid">
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="img/artikel1.jpg" alt="Tren Rambut">
                 </div>
-                <div class="team-info">
-                    <h4>Pandu</h4>
-                    <span class="team-role">Senior Barber / Classic Expert</span>
-                    <p class="team-desc">
-                        Dengan pengalaman lebih dari 10 tahun, Pandu adalah ahli dalam potongan klasik seperti Pompadour
-                        dan Side Part. Presisi adalah kunci kerjanya.
+                <div class="blog-content">
+                    <div class="blog-meta">Tren • 5 Jan 2026</div>
+                    <h3><a href="blog-detail-1.html">5 Model Rambut Pria yang Akan Tren di Tahun 2026</a></h3>
+                    <p>Mulai dari gaya klasik yang kembali hits hingga potongan modern yang edgy. Temukan gaya barumu di
+                        sini.</p>
+                    <a href="blog-detail-1.html" class="read-more">Baca Selengkapnya <i
+                            class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="img/artikel2.jpg" alt="Perawatan Jenggot">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Tips • 28 Des 2025</div>
+                    <h3><a href="blog-detail-2.html">Cara Merawat Jenggot Agar Lebat dan Rapi</a></h3>
+                    <p>Jenggot bukan sekadar bulu wajah. Simak tips penggunaan beard oil dan teknik trimming yang benar.
                     </p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
+                    <a href="blog-detail-2.html" class="read-more">Baca Selengkapnya <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
-            <div class="team-card">
-                <div class="team-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486?q=80&w=800&auto=format&fit=crop"
-                        alt="Reza Barber">
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="img/artikel3.jpg" alt="Barbershop Routine">
                 </div>
-                <div class="team-info">
-                    <h4>Reza</h4>
-                    <span class="team-role">Fade Master / Modern Style</span>
-                    <p class="team-desc">
-                        Spesialis dalam Skin Fade dan gaya rambut modern seperti French Crop. Reza selalu update dengan
-                        tren rambut terkini untuk anak muda.
-                    </p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-tiktok"></i></a>
-                    </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Lifestyle • 10 Des 2025</div>
+                    <h3><a href="blog-detail-3.html">Kenapa Kamu Harus Cukur Rambut Secara Rutin?</a></h3>
+                    <p>Menjaga penampilan tetap prima bukan satu-satunya alasan. Cukur rutin juga menjaga kesehatan
+                        kulit kepala.</p>
+                    <a href="blog-detail-3.html" class="read-more">Baca Selengkapnya <i
+                            class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
 
-            <div class="team-card">
-                <div class="team-img-wrapper">
-                    <img src="https://images.unsplash.com/photo-1542327897-d73f4005b533?q=80&w=800&auto=format&fit=crop"
-                        alt="Chandra Barber">
-                </div>
-                <div class="team-info">
-                    <h4>Chandra</h4>
-                    <span class="team-role">Creative & Hair Tattoo</span>
-                    <p class="team-desc">
-                        Punya jiwa seni tinggi, Chandra adalah pilihan tepat untuk Hair Tattoo, pewarnaan rambut, dan
-                        styling eksperimental yang unik.
-                    </p>
-                    <div class="team-social">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="skills-section">
-        <div class="skills-grid">
-            <div class="skill-item">
-                <h4>20+</h4>
-                <p>Tahun Pengalaman Tim</p>
-            </div>
-            <div class="skill-item">
-                <h4>5k+</h4>
-                <p>Pelanggan Puas</p>
-            </div>
-            <div class="skill-item">
-                <h4>100%</h4>
-                <p>Jaminan Kualitas</p>
-            </div>
         </div>
     </section>
 
     <section class="cta">
-        <h3>Pilih Barber Favoritmu</h3>
-        <p style="margin-bottom: 30px; color: #ddd;">Pastikan jadwal mereka tersedia sebelum Anda datang.</p>
+        <h3>Butuh Saran Gaya Rambut?</h3>
+        <p style="margin-bottom: 30px; color: #ddd;">Barber kami siap memberikan konsultasi gratis sebelum cukur.</p>
         <a href="#" class="btn">Booking via WhatsApp</a>
     </section>
 
@@ -596,6 +555,30 @@
             <p>&copy; 2026 Barbershop Modern. All Rights Reserved. Designed with Class.</p>
         </div>
     </footer>
+
+    <script>
+        function filterBlog() {
+            // Ambil value dari input
+            let input = document.getElementById('searchInput');
+            let filter = input.value.toUpperCase();
+
+            // Ambil container blog dan kartu-kartunya
+            let grid = document.getElementById('blogGrid');
+            let cards = grid.getElementsByClassName('blog-card');
+
+            // Loop semua kartu, sembunyikan yang tidak cocok
+            for (let i = 0; i < cards.length; i++) {
+                let h3 = cards[i].getElementsByTagName("h3")[0];
+                let txtValue = h3.textContent || h3.innerText;
+
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 
