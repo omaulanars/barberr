@@ -4,13 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Barbershop Modern</title>
+    <title>Barbershop Modern | Tempat Cukur Pria Terbaik di Malang</title>
+
+    <meta name="description"
+        content="Barbershop Modern Malang. Solusi potong rambut pria dengan barber profesional, alat steril, dan tempat nyaman. Booking online sekarang!">
+    <meta name="keywords"
+        content="Barbershop Malang, Potong Rambut Pria, Cukur Rambut Malang, Barbershop Terdekat, Haircut Malang">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.barbershopmodern.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Barbershop Modern - Gaya Rambut Pria Terkini">
+    <meta property="og:description"
+        content="Tampil percaya diri dengan gaya rambut terbaru. Pelayanan premium harga bersahabat.">
+    <meta property="og:image" content="https://www.barbershopmodern.com/img/bg.jpg">
+    <meta property="og:url" content="https://www.barbershopmodern.com/">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Barbershop Modern",
+      "image": "img/bg.jpg",
+      "description": "Barbershop terbaik di Malang dengan layanan premium.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Jl. Veteran No. 45",
+        "addressLocality": "Malang",
+        "addressRegion": "Jawa Timur"
+      },
+      "telephone": "+6281234567890",
+      "openingHours": "Mo-Su 10:00-21:00",
+      "priceRange": "$$"
+    }
+    </script>
 
     <style>
         /* ================= VARIABLES & RESET ================= */
@@ -37,6 +77,10 @@
             font-family: var(--font-body);
             line-height: 1.7;
             overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         a {
@@ -94,6 +138,65 @@
             color: #000;
         }
 
+        /* ================= FLOATING BUTTONS ================= */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            font-size: 24px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .float-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Tombol WhatsApp */
+        .btn-wa {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+        }
+
+        /* Tombol Scroll Top */
+        .btn-scroll-top {
+            background-color: var(--gold);
+            color: #000;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .btn-scroll-top:hover {
+            background-color: #b59020;
+        }
+
         /* ================= NAVBAR ================= */
         nav {
             position: fixed;
@@ -116,14 +219,22 @@
             font-weight: 800;
             letter-spacing: 2px;
             color: var(--white);
+            z-index: 1001;
         }
 
-        nav ul {
+        /* Wrapper menu mobile */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu ul {
             display: flex;
             gap: 40px;
         }
 
-        nav ul li a {
+        .nav-menu ul li a {
             font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
@@ -131,13 +242,30 @@
             color: var(--gray);
         }
 
-        nav ul li a:hover {
+        .nav-menu ul li a:hover,
+        .nav-menu ul li a.active {
             color: var(--gold);
         }
 
-        nav .btn {
+        .nav-menu .btn {
             padding: 8px 20px;
             font-size: 12px;
+        }
+
+        /* Hamburger Icon */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--white);
         }
 
         /* ================= HERO ================= */
@@ -145,7 +273,7 @@
             min-height: 100vh;
             background:
                 linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.4)),
-                url("https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop") center/cover no-repeat fixed;
+                url("img/bg.jpg") center/cover no-repeat fixed;
             display: flex;
             align-items: center;
             padding: 0 8%;
@@ -194,7 +322,8 @@
             margin-bottom: 60px;
         }
 
-        .section-title h3 {
+        /* Heading Section jadi H2 */
+        .section-title h2 {
             font-family: var(--font-head);
             font-size: 36px;
             font-weight: 700;
@@ -235,11 +364,13 @@
             transform: translateY(-5px);
         }
 
-        .service-box h4 {
+        /* Sub-heading jadi H3 */
+        .service-box h3 {
             margin: 0 0 10px;
             font-family: var(--font-head);
             font-size: 20px;
             text-transform: uppercase;
+            color: var(--white);
         }
 
         .service-box p {
@@ -311,11 +442,13 @@
             filter: grayscale(0%);
         }
 
-        .barber-card h4 {
+        /* Sub-heading jadi H3 */
+        .barber-card h3 {
             font-family: var(--font-head);
             font-size: 20px;
             text-transform: uppercase;
             margin-bottom: 5px;
+            color: var(--white);
         }
 
         .barber-card p {
@@ -438,12 +571,12 @@
         /* ================= CTA ================= */
         .cta {
             background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
-                url("https://images.unsplash.com/photo-1621605810052-8094b3f96bfa?q=80&w=2000&auto=format&fit=crop") center/cover fixed;
+                url("img/bg.jpg") center/cover fixed;
             padding: 120px 8%;
             text-align: center;
         }
 
-        .cta h3 {
+        .cta h2 {
             font-family: var(--font-head);
             font-size: 40px;
             margin-bottom: 30px;
@@ -521,7 +654,7 @@
             color: #555;
         }
 
-        /* ================= MOBILE RESPONSIVE (OPTIMIZED) ================= */
+        /* ================= MOBILE RESPONSIVE ================= */
         @media (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -530,81 +663,86 @@
 
         @media (max-width: 768px) {
 
-            /* Navbar */
-            nav {
+            /* 1. Navbar Mobile Style */
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                /* Tinggi navbar */
+                left: -100%;
+                /* Sembunyikan ke kiri */
                 flex-direction: column;
-                padding: 15px;
-                gap: 15px;
-                background: #0f0f0f;
-                /* Background solid agar tidak transparan di mobile */
-            }
-
-            nav ul {
-                gap: 15px;
-                font-size: 13px;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-
-            nav .btn {
-                display: none;
-                /* Menyembunyikan tombol booking di nav bar atas */
-            }
-
-            /* Hero */
-            .hero {
-                /* Fix untuk iOS background fixed zoom issue */
-                background-attachment: scroll;
-                background-position: center;
+                background-color: rgba(15, 15, 15, 0.98);
+                width: 100%;
                 text-align: center;
-                justify-content: center;
+                transition: 0.3s;
+                padding: 30px 0;
+                border-bottom: 1px solid #333;
+                gap: 25px;
+            }
+
+            .nav-menu.active {
+                left: 0;
+                /* Munculkan */
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .nav-menu .btn {
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+            /* 2. Hero Adjustments */
+            .hero {
+                background-attachment: scroll;
+                /* Disable parallax on mobile for better performance */
+                text-align: center;
                 padding: 0 5%;
             }
 
             .hero-content {
-                width: 100%;
                 padding-top: 100px;
-                /* Jarak dari navbar */
             }
 
             .hero h2 {
                 font-size: 32px;
-                /* Ukuran font lebih proporsional */
-                margin-bottom: 15px;
-            }
-
-            .hero p {
-                font-size: 16px;
-                margin-bottom: 30px;
             }
 
             .hero .btn-group {
-                justify-content: center;
                 flex-direction: column;
-                width: 100%;
                 gap: 15px;
             }
 
             .btn,
             .btn-outline {
                 width: 100%;
-                text-align: center;
             }
 
-            /* Section Padding */
+            /* 3. Section Adjustments */
             section {
                 padding: 60px 6%;
             }
 
-            .section-title {
-                margin-bottom: 40px;
-            }
-
-            .section-title h3 {
-                font-size: 28px;
-            }
-
-            /* Why Us (Gambar di atas teks) */
+            /* 4. Why Us */
             .why {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -612,11 +750,10 @@
 
             .why img {
                 order: -1;
-                margin-bottom: 20px;
                 height: 250px;
             }
 
-            /* Gallery (2 Kolom) */
+            /* 5. Gallery */
             .gallery {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -625,17 +762,11 @@
                 height: 180px;
             }
 
-            /* Testimoni */
+            /* 6. Testimoni */
             .testimoni-container {
                 padding: 40px 25px 90px 25px;
-                /* Padding bawah lebih besar untuk tombol */
             }
 
-            .testimoni-slide p {
-                font-size: 16px;
-            }
-
-            /* Posisi tombol slider di tengah bawah */
             .slider-btn {
                 top: auto;
                 bottom: 25px;
@@ -644,34 +775,31 @@
 
             .prev-btn {
                 left: calc(50% - 60px);
-                /* Geser ke kiri dari tengah */
             }
 
             .next-btn {
                 right: calc(50% - 60px);
-                /* Geser ke kanan dari tengah */
             }
 
-            /* Footer */
+            /* 7. Footer & Buttons */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
 
             footer {
-                padding: 60px 6% 30px;
-            }
-        }
-
-        /* Mobile Kecil */
-        @media (max-width: 480px) {
-            .gallery {
-                grid-template-columns: 1fr;
-                /* 1 Kolom untuk HP kecil */
+                padding: 60px 5% 30px;
             }
 
-            .hero h2 {
-                font-size: 28px;
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .float-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
             }
         }
     </style>
@@ -681,15 +809,35 @@
 
     <nav>
         <h1>BARBERSHOP</h1>
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="layanan.html">Layanan</a></li>
-            <li><a href="barber.html">Barbers</a></li>
-            <li><a href="galeri.html">Galeri</a></li>
-            <li><a href="blog.html">Blog</a></li>
-        </ul>
-        <a href="#" class="btn">Booking Now</a>
+
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="barber.html">Barbers</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <a href="https://wa.me/62895639068080" target="_blank" class="btn" aria-label="Booking WhatsApp">Booking
+                Now</a>
+        </div>
+
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
+
+    <div class="floating-buttons">
+        <a href="#" class="float-btn btn-scroll-top" id="scrollTopBtn" onclick="scrollToTop(event)"
+            aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" class="float-btn btn-wa" target="_blank" aria-label="Chat WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <section class="hero">
         <div class="hero-content">
@@ -697,33 +845,33 @@
             <p>Barbershop profesional dengan barber berpengalaman dan pelayanan terbaik. Kami mengutamakan detail dan
                 kenyamanan Anda.</p>
             <div class="btn-group">
-                <a href="#" class="btn">Booking Sekarang</a>
-                <a href="#" class="btn-outline">Lihat Layanan</a>
+                <a href="https://wa.me/62895639068080" target="_blank" class="btn">Booking Sekarang</a>
+                <a href="layanan.html" class="btn-outline">Lihat Layanan</a>
             </div>
         </div>
     </section>
 
     <section>
         <div class="section-title">
-            <h3>Layanan Kami</h3>
+            <h2>Layanan Kami</h2>
             <span></span>
         </div>
 
         <div class="services">
             <div class="service-box">
-                <h4>Haircut</h4>
+                <h3>Haircut</h3>
                 <p>Rp 50K+</p>
             </div>
             <div class="service-box">
-                <h4>Hair Styling</h4>
+                <h3>Hair Styling</h3>
                 <p>Rp 60K+</p>
             </div>
             <div class="service-box">
-                <h4>Beard Trim</h4>
+                <h3>Beard Trim</h3>
                 <p>Rp 45K+</p>
             </div>
             <div class="service-box">
-                <h4>Kids Haircut</h4>
+                <h3>Kids Haircut</h3>
                 <p>Rp 40K+</p>
             </div>
         </div>
@@ -732,7 +880,8 @@
     <section class="section-alt">
         <div class="why">
             <div class="why-text">
-                <h3 style="font-family: var(--font-head); font-size: 28px; margin-bottom: 20px;">KENAPA KAMI?</h3>
+                <h2 style="font-family: var(--font-head); font-size: 28px; margin-bottom: 20px; color: var(--white);">
+                    KENAPA KAMI?</h2>
                 <ul>
                     <li>Barber Profesional & Berpengalaman</li>
                     <li>Alat Steril & Higienis (Prioritas Kami)</li>
@@ -740,59 +889,66 @@
                     <li>Harga Transparan Tanpa Biaya Tambahan</li>
                 </ul>
             </div>
-            <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?q=80&w=2000&auto=format&fit=crop"
-                alt="Interior Barbershop">
+            <img src="img/about.jpg" alt="Interior Barbershop Modern" loading="lazy" width="600" height="400">
         </div>
     </section>
 
     <section>
         <div class="section-title">
-            <h3>Barber Kami</h3>
+            <h2>Barber Kami</h2>
             <span></span>
         </div>
 
         <div class="barbers">
             <div class="barber-card">
-                <img src="https://images.unsplash.com/photo-1605497788044-5a32c7078486" alt="Barber Andi">
-                <h4>Andi</h4>
-                <p>Fade Specialist</p>
+                <img src="img/barber1.jpg" alt="Barber Pandu Senior" loading="lazy" width="300" height="350">
+                <h3>Pandu</h3>
+                <p>Senior Barber</p>
             </div>
             <div class="barber-card">
-                <img src="https://images.unsplash.com/photo-1542327897-d73f4005b533" alt="Barber Budi">
-                <h4>Budi</h4>
-                <p>Classic Cut</p>
+                <img src="img/barber2.jpg" alt="Barber Reza Fade Master" loading="lazy" width="300" height="350">
+                <h3>Reza</h3>
+                <p>Fade Master</p>
             </div>
             <div class="barber-card">
-                <img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6" alt="Barber Rizky">
-                <h4>Rizky</h4>
-                <p>Beard Expert</p>
+                <img src="img/barber3.jpg" alt="Barber Chandra Creative" loading="lazy" width="300" height="350">
+                <h3>Chandra</h3>
+                <p>Creative & Hair Tattoo</p>
             </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="barber.html" class="btn-outline">Lihat Semua Barber &rarr;</a>
         </div>
     </section>
 
     <section class="section-alt">
         <div class="section-title">
-            <h3>Galeri Kami</h3>
+            <h2>Galeri Kami</h2>
             <span></span>
         </div>
 
         <div class="gallery">
-            <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70" alt="Gallery 1">
-            <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a" alt="Gallery 2">
-            <img src="https://images.unsplash.com/photo-1621605810052-8094b3f96bfa" alt="Gallery 3">
-            <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1a0" alt="Gallery 4">
+            <img src="img/galeri1.jpg" alt="Hasil Potong Rambut 1" loading="lazy" width="300" height="250">
+            <img src="img/galeri2.jpg" alt="Hasil Potong Rambut 2" loading="lazy" width="300" height="250">
+            <img src="img/galeri3.jpg" alt="Hasil Potong Rambut 3" loading="lazy" width="300" height="250">
+            <img src="img/galeri4.jpg" alt="Hasil Potong Rambut 4" loading="lazy" width="300" height="250">
+        </div>
+
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="galeri.html" class="btn-outline">Lihat Galeri Penuh &rarr;</a>
         </div>
     </section>
 
     <section class="testimoni-section">
         <div class="section-title">
-            <h3>Kata Mereka</h3>
+            <h2>Kata Mereka</h2>
             <span></span>
         </div>
 
         <div class="testimoni-container">
-            <button class="slider-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
-            <button class="slider-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+            <button class="slider-btn prev-btn" onclick="changeSlide(-1)" aria-label="Previous Slide">&#10094;</button>
+            <button class="slider-btn next-btn" onclick="changeSlide(1)" aria-label="Next Slide">&#10095;</button>
 
             <div class="testimoni-slide active">
                 <p>"Potongannya rapi, barber ramah, tempat nyaman. Sangat rekomendasi untuk yang cari potongan detail."
@@ -817,8 +973,8 @@
     </section>
 
     <section class="cta">
-        <h3>Siap Tampil Lebih Percaya Diri?</h3>
-        <a href="#" class="btn">Booking Sekarang</a>
+        <h2>Siap Tampil Lebih Percaya Diri?</h2>
+        <a href="https://wa.me/62895639068080" class="btn" aria-label="Booking WhatsApp">Booking Sekarang</a>
     </section>
 
     <footer>
@@ -834,21 +990,21 @@
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="layanan.html">Layanan</a></li>
-                    <li><a href="#">Barbers</a></li>
-                    <li><a href="#">Galeri Foto</a></li>
-                    <li><a href="#">Artikel / Blog</a></li>
+                    <li><a href="barber.html">Barbers</a></li>
+                    <li><a href="galeri.html">Galeri Foto</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Layanan</h4>
                 <ul>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Regular Haircut</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Beard Trim & Shave</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Coloring (Basic)</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Tattoo / Skin Fade</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Black Mask Treatment</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Premium Pomade</a></li>
+                    <li><a href="layanan.html">Regular Haircut</a></li>
+                    <li><a href="layanan.html">Beard Trim & Shave</a></li>
+                    <li><a href="layanan.html">Hair Coloring (Basic)</a></li>
+                    <li><a href="layanan.html">Hair Tattoo / Skin Fade</a></li>
+                    <li><a href="layanan.html">Black Mask Treatment</a></li>
+                    <li><a href="layanan.html">Premium Pomade</a></li>
                 </ul>
             </div>
 
@@ -882,6 +1038,45 @@
     </footer>
 
     <script>
+        // === LOGIKA HAMBURGER MENU ===
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Tutup menu saat link diklik
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // === LOGIKA SCROLL TO TOP ===
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Ketika user scroll ke bawah 300px, tampilkan tombol
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        }
+
+        // Ketika tombol diklik, scroll ke atas
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+
+        // === SCRIPT TESTIMONI SLIDER ===
         let slideIndex = 0;
         const slides = document.querySelectorAll('.testimoni-slide');
 

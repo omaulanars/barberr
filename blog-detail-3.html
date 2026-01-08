@@ -4,14 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenapa Harus Cukur Rutin? - Barbershop Modern</title>
+    <title>Kenapa Harus Cukur Rutin? Manfaat & Frekuensi Ideal - Barbershop Modern</title>
+
+    <meta name="description"
+        content="Ketahui alasan penting kenapa kamu harus cukur rambut secara rutin. Dari menjaga kesehatan kulit kepala hingga meningkatkan kepercayaan diri.">
+    <meta name="keywords"
+        content="Manfaat Cukur Rambut, Rutinitas Potong Rambut, Kesehatan Kulit Kepala, Frekuensi Cukur Ideal, Barbershop Tips">
+    <meta name="author" content="Satria - Barbershop Modern">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.barbershopmodern.com/blog-detail-3.html">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Kenapa Harus Cukur Rutin?">
+    <meta property="og:description" content="Rambut sehat dan penampilan rapi dimulai dari jadwal cukur yang teratur.">
+    <meta property="og:image" content="https://www.barbershopmodern.com/img/artikel3.jpg">
+    <meta property="og:url" content="https://www.barbershopmodern.com/blog-detail-3.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
         rel="stylesheet">
+
+    <link rel="preload" as="image" href="img/artikel3.jpg">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Kenapa Kamu Harus Cukur Rambut Secara Rutin?",
+      "image": "img/artikel3.jpg",
+      "author": {
+        "@type": "Person",
+        "name": "Satria"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "Barbershop Modern",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "img/logo.png"
+        }
+      },
+      "datePublished": "2025-12-10",
+      "description": "Artikel tentang manfaat kesehatan dan estetika dari mencukur rambut secara rutin."
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "Berapa frekuensi ideal potong rambut?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Untuk rambut pendek/fade setiap 2-3 minggu. Untuk rambut medium/panjang setiap 4-6 minggu."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Apakah sering potong rambut bikin rambut cepat panjang?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Secara teknis tidak mempercepat pertumbuhan dari akar, tetapi mencegah kerusakan ujung rambut sehingga rambut bisa tumbuh panjang dengan sehat tanpa patah."
+        }
+      }]
+    }
+    </script>
 
     <style>
         /* ================= VARIABLES & RESET ================= */
@@ -77,28 +144,6 @@
             color: var(--gold);
         }
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-title h3 {
-            font-family: var(--font-head);
-            font-size: 36px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            color: var(--white);
-        }
-
-        .section-title span {
-            width: 60px;
-            height: 4px;
-            background: var(--gold);
-            display: inline-block;
-        }
-
         /* ================= NAVBAR ================= */
         nav {
             position: fixed;
@@ -121,14 +166,22 @@
             font-weight: 800;
             letter-spacing: 2px;
             color: var(--white);
+            z-index: 1001;
         }
 
-        nav ul {
+        /* Nav Menu Wrapper untuk Desktop */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu ul {
             display: flex;
             gap: 40px;
         }
 
-        nav ul li a {
+        .nav-menu ul li a {
             font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
@@ -136,24 +189,40 @@
             color: var(--gray);
         }
 
-        nav ul li a:hover,
-        nav ul li a.active {
+        .nav-menu ul li a:hover,
+        .nav-menu ul li a.active {
             color: var(--gold);
         }
 
-        nav .btn {
+        .nav-menu .btn {
             padding: 8px 20px;
             font-size: 12px;
         }
 
-        /* ================= BLOG DETAIL LAYOUT (WIDE) ================= */
+        /* Hamburger Icon (Hidden on Desktop) */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--white);
+        }
+
+        /* ================= BLOG DETAIL LAYOUT ================= */
         .blog-wrapper {
             padding: 140px 8% 80px;
             max-width: 1300px;
             margin: 0 auto;
         }
 
-        /* 2. HEADER ARTIKEL */
+        /* HEADER ARTIKEL */
         .article-header {
             text-align: center;
             margin-bottom: 50px;
@@ -186,7 +255,7 @@
             margin-bottom: 50px;
         }
 
-        /* 3. TABLE OF CONTENT */
+        /* TABLE OF CONTENT */
         .toc-box {
             background: var(--dark2);
             border: 1px solid var(--gold);
@@ -228,7 +297,7 @@
             text-decoration: underline;
         }
 
-        /* 4. CONTENT STYLING */
+        /* CONTENT STYLING */
         .article-content {
             font-size: 18px;
             color: #ddd;
@@ -281,7 +350,7 @@
             margin: 50px 0;
         }
 
-        /* 5. FAQ SECTION */
+        /* FAQ SECTION - Optimized H2 */
         .faq-section {
             margin-top: 60px;
             background: var(--dark2);
@@ -292,10 +361,12 @@
             margin-right: auto;
         }
 
-        .faq-section h3 {
+        .faq-section h2 {
             font-family: var(--font-head);
             color: var(--gold);
             margin-bottom: 20px;
+            font-size: 28px;
+            font-weight: 700;
         }
 
         .faq-item {
@@ -316,7 +387,7 @@
             margin: 0;
         }
 
-        /* 6. SOCIAL SHARE */
+        /* SOCIAL SHARE */
         .share-section {
             margin-top: 80px;
             text-align: center;
@@ -361,7 +432,7 @@
             transform: translateY(-3px);
         }
 
-        /* 7. AUTHOR PROFILE (NEW CSS) */
+        /* AUTHOR PROFILE */
         .author-box {
             margin-top: 60px;
             background: var(--dark2);
@@ -408,11 +479,33 @@
             margin: 0;
         }
 
-        /* ================= RELATED ARTICLES ================= */
+        /* RELATED ARTICLES - Optimized H2 */
         .related-wrapper {
             background: var(--dark-alt);
             padding: 80px 8%;
             border-top: 1px solid #333;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-family: var(--font-head);
+            font-size: 32px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            color: var(--white);
+        }
+
+        .section-title span {
+            width: 60px;
+            height: 4px;
+            background: var(--gold);
+            display: inline-block;
         }
 
         .blog-grid {
@@ -501,7 +594,7 @@
             gap: 5px;
         }
 
-        /* ================= FOOTER ================= */
+        /* FOOTER */
         footer {
             background: #080808;
             color: var(--gray);
@@ -572,25 +665,59 @@
             color: #555;
         }
 
-        /* ================= RESPONSIVE ================= */
+        /* RESPONSIVE */
         @media (max-width: 768px) {
-            nav {
+
+            /* 1. Navbar Mobile Style */
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                /* Tinggi navbar */
+                left: -100%;
+                /* Sembunyikan ke kiri */
                 flex-direction: column;
-                padding: 15px;
-                gap: 15px;
+                background-color: rgba(15, 15, 15, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 30px 0;
+                border-bottom: 1px solid #333;
+                gap: 25px;
+                box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
             }
 
-            nav ul {
-                gap: 20px;
-                font-size: 13px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .nav-menu.active {
+                left: 0;
+                /* Munculkan */
             }
 
-            nav .btn {
-                display: none;
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 25px;
             }
 
+            .nav-menu .btn {
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+            /* Adjust Blog Wrapper */
             .blog-wrapper {
                 padding: 100px 5% 60px;
             }
@@ -633,26 +760,35 @@
 
     <nav>
         <h1>BARBERSHOP</h1>
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="layanan.html">Layanan</a></li>
-            <li><a href="barber.html">Barbers</a></li>
-            <li><a href="galeri.html">Galeri Foto</a></li>
-            <li><a href="blog.html" class="active">Blog</a></li>
-        </ul>
-        <a href="#" class="btn">Booking Now</a>
+
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="barber.html">Barbers</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
+            <a href="#" class="btn">Booking Now</a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
 
     <div class="blog-wrapper">
 
         <div class="article-header">
-            <div class="article-meta">Lifestyle • 10 Des 2025 • Oleh Admin</div>
+            <div class="article-meta">Lifestyle • 10 Des 2025 • Oleh Satria</div>
             <h1>Kenapa Kamu Harus Cukur Rambut Secara Rutin?</h1>
             <p style="color: var(--gray);">Menjaga penampilan tetap prima bukan satu-satunya alasan. Cukur rutin juga
                 menjaga kesehatan kulit kepala.</p>
         </div>
 
-        <img src="img/artikel3.jpg" alt="Cukur Rutin" class="article-img-top">
+        <img src="img/artikel3.jpg" alt="Cukur Rutin" class="article-img-top" width="1000" height="500">
 
         <div class="toc-box">
             <div class="toc-toggle" onclick="toggleToc()">
@@ -694,7 +830,8 @@
             <p>Rambut yang terlalu tebal dan panjang bisa menghambat sirkulasi udara ke kulit kepala, menyebabkan
                 keringat berlebih dan ketombe. Cukur rutin membantu kulit kepala 'bernapas' lebih baik.</p>
 
-            <img src="img/3artikel.jpg" alt="Alat Cukur" class="article-img-bottom">
+            <img src="img/3artikel.jpg" alt="Alat Cukur" class="article-img-bottom" loading="lazy" width="1000"
+                height="450">
 
             <h2 id="reason4">4. Rambut Terlihat Lebih Tebal</h2>
             <p>Ujung rambut yang tua cenderung menipis dan kering. Dengan membuang bagian tersebut, rambut akan terlihat
@@ -706,7 +843,7 @@
         </div>
 
         <div class="faq-section">
-            <h3>Pertanyaan Umum (FAQ)</h3>
+            <h2>Pertanyaan Umum (FAQ)</h2>
             <div class="faq-item">
                 <h4>Berapa frekuensi ideal potong rambut?</h4>
                 <p>Untuk rambut pendek/fade setiap 2-3 minggu. Untuk rambut medium/panjang setiap 4-6 minggu.</p>
@@ -720,7 +857,7 @@
 
         <div class="author-box">
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=200&auto=format&fit=crop"
-                alt="Satria" class="author-img">
+                alt="Satria" class="author-img" loading="lazy">
             <div class="author-info">
                 <h4>Satria</h4>
                 <span>Senior Barber & Content Writer</span>
@@ -743,14 +880,14 @@
 
     <div class="related-wrapper">
         <div class="section-title">
-            <h3>Artikel Lainnya</h3>
+            <h2>Artikel Lainnya</h2>
             <span></span>
         </div>
 
         <div class="blog-grid">
             <div class="blog-card">
                 <div class="blog-img">
-                    <img src="img/artikel1.jpg" alt="Tren Rambut">
+                    <img src="img/artikel1.jpg" alt="Tren Rambut" loading="lazy">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">Tren • 5 Jan 2026</div>
@@ -762,7 +899,7 @@
 
             <div class="blog-card">
                 <div class="blog-img">
-                    <img src="img/artikel2.jpg" alt="Perawatan Jenggot">
+                    <img src="img/artikel2.jpg" alt="Perawatan Jenggot" loading="lazy">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">Tips • 28 Des 2025</div>
@@ -849,6 +986,21 @@
                 tocIcon.classList.add("fa-chevron-down");
             }
         }
+
+        // === LOGIKA HAMBURGER MENU ===
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Tutup menu saat link diklik
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
     </script>
 
 </body>

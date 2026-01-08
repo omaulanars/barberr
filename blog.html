@@ -4,21 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog & Artikel - Barbershop Modern</title>
+    <title>Blog & Artikel | Tips Gaya Rambut Pria</title>
+
+    <meta name="description"
+        content="Baca artikel terbaru seputar gaya rambut pria, tips perawatan jenggot, dan tren barbershop di Malang. Update pengetahuan grooming Anda di sini.">
+    <meta name="keywords"
+        content="Blog Barbershop, Tips Rambut Pria, Gaya Rambut 2026, Perawatan Jenggot, Artikel Grooming Pria">
+    <meta name="author" content="Barbershop Modern">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.barbershopmodern.com/blog.html">
+
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Blog & Artikel - Barbershop Modern">
+    <meta property="og:description" content="Temukan inspirasi gaya rambut dan tips perawatan pria terlengkap.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1521590832169-7dad1a9b708c">
+    <meta property="og:url" content="https://www.barbershopmodern.com/blog.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
+
+    <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1521590832169-7dad1a9b708c?q=80&w=2000&auto=format&fit=crop">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Barbershop Modern Blog",
+      "description": "Tips dan trik seputar perawatan rambut dan gaya pria.",
+      "url": "https://www.barbershopmodern.com/blog.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Barbershop Modern",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "img/logo.png"
+        }
+      }
+    }
+    </script>
 
     <style>
         /* ================= VARIABLES & RESET ================= */
         :root {
             --dark: #0f0f0f;
             --dark2: #1a1a1a;
-            --dark-alt: #2a2a2a;
+            --dark-alt: #181818;
             --gold: #d4af37;
             --white: #f5f5f5;
             --gray: #a0a0a0;
@@ -38,6 +79,10 @@
             font-family: var(--font-body);
             line-height: 1.7;
             overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         a {
@@ -77,6 +122,63 @@
             color: var(--gold);
         }
 
+        /* ================= FLOATING BUTTONS ================= */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            font-size: 24px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .float-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        .btn-wa {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+        }
+
+        .btn-scroll-top {
+            background-color: var(--gold);
+            color: #000;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .btn-scroll-top:hover {
+            background-color: #b59020;
+        }
+
         /* ================= NAVBAR ================= */
         nav {
             position: fixed;
@@ -99,14 +201,21 @@
             font-weight: 800;
             letter-spacing: 2px;
             color: var(--white);
+            z-index: 1001;
         }
 
-        nav ul {
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu ul {
             display: flex;
             gap: 40px;
         }
 
-        nav ul li a {
+        .nav-menu ul li a {
             font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
@@ -114,14 +223,29 @@
             color: var(--gray);
         }
 
-        nav ul li a:hover,
-        nav ul li a.active {
+        .nav-menu ul li a:hover,
+        .nav-menu ul li a.active {
             color: var(--gold);
         }
 
-        nav .btn {
+        .nav-menu .btn {
             padding: 8px 20px;
             font-size: 12px;
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--white);
         }
 
         /* ================= PAGE HEADER ================= */
@@ -132,6 +256,7 @@
             text-align: center;
         }
 
+        /* H2 untuk Page Title */
         .page-header h2 {
             font-family: var(--font-head);
             font-size: 48px;
@@ -151,7 +276,6 @@
         .search-section {
             padding: 0 8% 40px;
             margin-top: -30px;
-            /* Pull up overlap header */
             position: relative;
             z-index: 2;
         }
@@ -251,6 +375,7 @@
             font-weight: 600;
         }
 
+        /* H3 untuk Judul Artikel */
         .blog-content h3 {
             font-family: var(--font-head);
             font-size: 20px;
@@ -271,7 +396,6 @@
             color: var(--gray);
             margin-bottom: 20px;
             flex: 1;
-            /* Push button to bottom */
         }
 
         .read-more {
@@ -285,18 +409,18 @@
 
         .read-more:hover {
             gap: 10px;
-            /* Efek geser panah */
         }
 
         /* ================= CTA ================= */
         .cta {
             background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
-                url("https://images.unsplash.com/photo-1621605810052-8094b3f96bfa?q=80&w=2000&auto=format&fit=crop") center/cover fixed;
+                url("img/bg.jpg") center/cover fixed;
             padding: 100px 8%;
             text-align: center;
         }
 
-        .cta h3 {
+        /* Update: H3 menjadi H2 (Judul Section) */
+        .cta h2 {
             font-family: var(--font-head);
             font-size: 36px;
             margin-bottom: 30px;
@@ -320,7 +444,8 @@
             text-align: left;
         }
 
-        .footer-col h4 {
+        /* Update: H4 menjadi H3 untuk Footer Heading */
+        .footer-col h3 {
             color: var(--white);
             font-family: var(--font-head);
             font-size: 16px;
@@ -331,7 +456,7 @@
             position: relative;
         }
 
-        .footer-col h4::after {
+        .footer-col h3::after {
             content: '';
             display: block;
             width: 30px;
@@ -374,7 +499,7 @@
             color: #555;
         }
 
-        /* ================= MOBILE RESPONSIVE ================= */
+        /* ================= RESPONSIVE ================= */
         @media (max-width: 1024px) {
             .footer-grid {
                 grid-template-columns: repeat(3, 1fr);
@@ -382,21 +507,52 @@
         }
 
         @media (max-width: 768px) {
-            nav {
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                left: -100%;
                 flex-direction: column;
-                padding: 15px;
-                gap: 15px;
+                background-color: rgba(15, 15, 15, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 30px 0;
+                border-bottom: 1px solid #333;
+                gap: 25px;
             }
 
-            nav ul {
-                gap: 20px;
-                font-size: 13px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .nav-menu.active {
+                left: 0;
             }
 
-            nav .btn {
-                display: none;
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .nav-menu .btn {
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+            .page-header {
+                padding: 120px 5% 50px;
             }
 
             .page-header h2 {
@@ -411,6 +567,17 @@
             footer {
                 padding: 60px 5% 30px;
             }
+
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .float-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -419,15 +586,34 @@
 
     <nav>
         <h1>BARBERSHOP</h1>
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="layanan.html">Layanan</a></li>
-            <li><a href="barber.html">Barbers</a></li>
-            <li><a href="galeri.html">Galeri Foto</a></li>
-            <li><a href="blog.html" class="active">Artikel / Blog</a></li>
-        </ul>
-        <a href="#" class="btn">Booking Now</a>
+
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="layanan.html">Layanan</a></li>
+                <li><a href="barber.html">Barbers</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="blog.html" class="active">Blog</a></li>
+            </ul>
+            <a href="https://wa.me/62895639068080" target="_blank" class="btn">Booking Now</a>
+        </div>
+
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
+
+    <div class="floating-buttons">
+        <a href="#" class="float-btn btn-scroll-top" id="scrollTopBtn" onclick="scrollToTop(event)"
+            aria-label="Scroll to Top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" class="float-btn btn-wa" target="_blank" aria-label="Chat via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <header class="page-header">
         <h2>Artikel & Tips</h2>
@@ -437,8 +623,8 @@
     <div class="search-section">
         <div class="search-container">
             <input type="text" id="searchInput" placeholder="Cari artikel (misal: Jenggot, Rambut)..."
-                onkeyup="filterBlog()">
-            <button onclick="filterBlog()"><i class="fas fa-search"></i></button>
+                aria-label="Cari Artikel" onkeyup="filterBlog()">
+            <button onclick="filterBlog()" aria-label="Cari"><i class="fas fa-search"></i></button>
         </div>
     </div>
 
@@ -447,7 +633,7 @@
 
             <div class="blog-card">
                 <div class="blog-img">
-                    <img src="img/artikel1.jpg" alt="Tren Rambut">
+                    <img src="img/artikel1.jpg" alt="Tren Rambut 2026" loading="lazy">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">Tren • 5 Jan 2026</div>
@@ -461,7 +647,7 @@
 
             <div class="blog-card">
                 <div class="blog-img">
-                    <img src="img/artikel2.jpg" alt="Perawatan Jenggot">
+                    <img src="img/artikel2.jpg" alt="Perawatan Jenggot" loading="lazy">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">Tips • 28 Des 2025</div>
@@ -475,7 +661,7 @@
 
             <div class="blog-card">
                 <div class="blog-img">
-                    <img src="img/artikel3.jpg" alt="Barbershop Routine">
+                    <img src="img/artikel3.jpg" alt="Manfaat Cukur Rutin" loading="lazy">
                 </div>
                 <div class="blog-content">
                     <div class="blog-meta">Lifestyle • 10 Des 2025</div>
@@ -487,25 +673,110 @@
                 </div>
             </div>
 
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1593702295094-aea22597af65?q=80&w=1000&auto=format&fit=crop"
+                        alt="Pomade vs Wax" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Produk • 15 Nov 2025</div>
+                    <h3><a href="#">Pomade, Wax, atau Clay? Pilih yang Cocok untuk Rambutmu</a></h3>
+                    <p>Bingung milih produk styling? Kenali perbedaan tekstur dan hasil akhirnya, apakah glossy atau
+                        matte.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=1000&auto=format&fit=crop"
+                        alt="Potongan Sesuai Wajah" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Tips • 2 Nov 2025</div>
+                    <h3><a href="#">Panduan Memilih Potongan Rambut Sesuai Bentuk Wajah</a></h3>
+                    <p>Wajah bulat, oval, atau kotak? Jangan salah pilih model. Temukan potongan yang memaksimalkan
+                        fitur wajahmu.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1599351431613-18ef1fdd27e1?q=80&w=1000&auto=format&fit=crop"
+                        alt="Mengatasi Ketombe" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Kesehatan • 20 Okt 2025</div>
+                    <h3><a href="#">Cara Ampuh Mengatasi Ketombe Membandel pada Pria</a></h3>
+                    <p>Ketombe bikin gak pede dan gatal? Simak penyebab utamanya dan cara mengatasinya secara alami
+                        maupun medis.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1567894340315-735d7c361db0?q=80&w=1000&auto=format&fit=crop"
+                        alt="Hair Tattoo" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Tren • 5 Okt 2025</div>
+                    <h3><a href="#">Tren Hair Tattoo: Seni Ukir Rambut yang Makin Diminati</a></h3>
+                    <p>Tampil beda dengan desain hair tattoo yang artistik. Inspirasi motif simpel hingga rumit untuk
+                        gaya maksimal.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1534353875273-b5887cc1abf5?q=80&w=1000&auto=format&fit=crop"
+                        alt="Uban Muda" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Edukasi • 28 Sep 2025</div>
+                    <h3><a href="#">Muncul Uban di Usia Muda? Ini Penyebab dan Solusinya</a></h3>
+                    <p>Stres atau genetik? Cari tahu kenapa rambut memutih lebih cepat dan cara merawatnya agar tetap
+                        sehat.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="blog-card">
+                <div class="blog-img">
+                    <img src="https://images.unsplash.com/photo-1519340241574-2291ec335c46?q=80&w=1000&auto=format&fit=crop"
+                        alt="Potong Rambut Anak" loading="lazy">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">Kids • 12 Sep 2025</div>
+                    <h3><a href="#">Tips Agar Anak Tidak Rewel Saat Potong Rambut</a></h3>
+                    <p>Mengajak si kecil ke barbershop bisa jadi tantangan. Coba trik psikologis ini agar mereka tenang
+                        saat dicukur.</p>
+                    <a href="#" class="read-more">Baca Selengkapnya <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section class="cta">
-        <h3>Butuh Saran Gaya Rambut?</h3>
+        <h2>Butuh Saran Gaya Rambut?</h2>
         <p style="margin-bottom: 30px; color: #ddd;">Barber kami siap memberikan konsultasi gratis sebelum cukur.</p>
-        <a href="#" class="btn">Booking via WhatsApp</a>
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn" aria-label="Booking WhatsApp">Booking via
+            WhatsApp</a>
     </section>
 
     <footer>
         <div class="footer-grid">
             <div class="footer-col">
-                <h4>Barbershop</h4>
+                <h3>Barbershop</h3>
                 <p>Tempat cukur rambut pria modern dengan pelayanan premium dan hasil potongan yang detail. Tampil
                     percaya diri setiap hari.</p>
             </div>
 
             <div class="footer-col">
-                <h4>Explore</h4>
+                <h3>Explore</h3>
                 <ul>
                     <li><a href="index.html">Beranda</a></li>
                     <li><a href="layanan.html">Layanan</a></li>
@@ -516,19 +787,19 @@
             </div>
 
             <div class="footer-col">
-                <h4>Layanan</h4>
+                <h3>Layanan</h3>
                 <ul>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Regular Haircut</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Beard Trim & Shave</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Coloring (Basic)</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Tattoo / Skin Fade</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Black Mask Treatment</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Premium Pomade</a></li>
+                    <li><a href="layanan.html">Regular Haircut</a></li>
+                    <li><a href="layanan.html">Beard Trim & Shave</a></li>
+                    <li><a href="layanan.html">Hair Coloring (Basic)</a></li>
+                    <li><a href="layanan.html">Hair Tattoo / Skin Fade</a></li>
+                    <li><a href="layanan.html">Black Mask Treatment</a></li>
+                    <li><a href="layanan.html">Premium Pomade</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
-                <h4>Network</h4>
+                <h3>Network</h3>
                 <ul>
                     <li><a href="#">Network 1</a></li>
                     <li><a href="#">Network 2</a></li>
@@ -539,7 +810,7 @@
             </div>
 
             <div class="footer-col">
-                <h4>Hubungi Kami</h4>
+                <h3>Hubungi Kami</h3>
                 <ul>
                     <li>📍 Jl. Veteran No. 45, Malang</li>
                     <li>📞 0812-3456-7890</li>
@@ -558,15 +829,11 @@
 
     <script>
         function filterBlog() {
-            // Ambil value dari input
             let input = document.getElementById('searchInput');
             let filter = input.value.toUpperCase();
-
-            // Ambil container blog dan kartu-kartunya
             let grid = document.getElementById('blogGrid');
             let cards = grid.getElementsByClassName('blog-card');
 
-            // Loop semua kartu, sembunyikan yang tidak cocok
             for (let i = 0; i < cards.length; i++) {
                 let h3 = cards[i].getElementsByTagName("h3")[0];
                 let txtValue = h3.textContent || h3.innerText;
@@ -577,6 +844,41 @@
                     cards[i].style.display = "none";
                 }
             }
+        }
+
+        // === LOGIKA HAMBURGER MENU ===
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // === LOGIKA SCROLL TO TOP ===
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        }
+
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
         }
     </script>
 

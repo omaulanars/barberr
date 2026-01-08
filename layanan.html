@@ -4,7 +4,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layanan & Harga - Barbershop Modern</title>
+    <title>Layanan & Harga Barbershop Modern | Potong Rambut Pria Premium</title>
+
+    <meta name="description"
+        content="Daftar lengkap layanan dan harga potong rambut pria di Barbershop Modern Malang. Mulai dari Haircut, Beard Trim, hingga Hair Coloring dengan barber profesional.">
+    <meta name="keywords"
+        content="Harga Potong Rambut Malang, Layanan Barbershop, Haircut Pria, Beard Trim, Hair Coloring, Barbershop Premium">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://www.barbershopmodern.com/layanan.html">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Layanan & Harga Spesial - Barbershop Modern">
+    <meta property="og:description"
+        content="Cek daftar harga potong rambut terbaru kami. Dapatkan pelayanan premium dengan harga terjangkau.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1503951914875-befbb6470523">
+    <meta property="og:url" content="https://www.barbershopmodern.com/layanan.html">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,16 +30,65 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Poppins:wght@300;400;500&display=swap"
         rel="stylesheet">
 
+    <link rel="preload" as="image"
+        href="https://images.unsplash.com/photo-1503951914875-befbb6470523?q=80&w=2000&auto=format&fit=crop">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Haircut",
+      "provider": {
+        "@type": "LocalBusiness",
+        "name": "Barbershop Modern",
+        "image": "img/logo.png",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Jl. Veteran No. 45",
+          "addressLocality": "Malang",
+          "addressRegion": "Jawa Timur"
+        },
+        "priceRange": "$$"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Malang"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Daftar Layanan",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Regular Haircut"
+            },
+            "price": "50000",
+            "priceCurrency": "IDR"
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Beard Trim & Shave"
+            },
+            "price": "35000",
+            "priceCurrency": "IDR"
+          }
+        ]
+      }
+    }
+    </script>
+
     <style>
         /* ================= VARIABLES & RESET ================= */
         :root {
             --dark: #0f0f0f;
-            /* Hitam Pekat */
             --dark2: #1a1a1a;
-            /* Warna Card */
             --dark-alt: #181818;
-            /* Abu-abu Gelap untuk Section Selang-Seling */
-
             --gold: #d4af37;
             --white: #f5f5f5;
             --gray: #a0a0a0;
@@ -41,6 +108,10 @@
             font-family: var(--font-body);
             line-height: 1.7;
             overflow-x: hidden;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         a {
@@ -80,6 +151,65 @@
             color: var(--gold);
         }
 
+        /* ================= FLOATING BUTTONS ================= */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            font-size: 24px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .float-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Tombol WhatsApp */
+        .btn-wa {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+        }
+
+        /* Tombol Scroll Top */
+        .btn-scroll-top {
+            background-color: var(--gold);
+            color: #000;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .btn-scroll-top:hover {
+            background-color: #b59020;
+        }
+
         /* ================= NAVBAR ================= */
         nav {
             position: fixed;
@@ -102,14 +232,23 @@
             font-weight: 800;
             letter-spacing: 2px;
             color: var(--white);
+            z-index: 1001;
+            /* Supaya logo tetap di atas menu mobile */
         }
 
-        nav ul {
+        /* Wrapper menu untuk mempermudah grouping di mobile */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu ul {
             display: flex;
             gap: 40px;
         }
 
-        nav ul li a {
+        .nav-menu ul li a {
             font-size: 14px;
             font-weight: 500;
             text-transform: uppercase;
@@ -117,14 +256,30 @@
             color: var(--gray);
         }
 
-        nav ul li a:hover,
-        nav ul li a.active {
+        .nav-menu ul li a:hover,
+        .nav-menu ul li a.active {
             color: var(--gold);
         }
 
-        nav .btn {
+        .nav-menu .btn {
             padding: 8px 20px;
             font-size: 12px;
+        }
+
+        /* Hamburger Icon (Hidden on Desktop) */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            transition: all 0.3s ease-in-out;
+            background-color: var(--white);
         }
 
         /* ================= PAGE HEADER ================= */
@@ -135,6 +290,7 @@
             text-align: center;
         }
 
+        /* Optimasi Header: H2 untuk Judul Halaman (H1 di Nav) */
         .page-header h2 {
             font-family: var(--font-head);
             font-size: 48px;
@@ -154,10 +310,8 @@
         section {
             padding: 80px 8%;
             background-color: var(--dark);
-            /* Default Hitam */
         }
 
-        /* Class khusus untuk section berwarna Abu-abu Gelap (Selang-seling) */
         .section-alt {
             background-color: var(--dark-alt);
             border-top: 1px solid #222;
@@ -169,7 +323,8 @@
             margin-bottom: 60px;
         }
 
-        .section-title h3 {
+        /* Optimasi Header: H3 menjadi H2 agar urut (H1->H2) */
+        .section-title h2 {
             font-family: var(--font-head);
             font-size: 36px;
             font-weight: 700;
@@ -188,7 +343,6 @@
 
         /* ================= SECTION 1: PAKET FAVORIT ================= */
         .favorite-section {
-            /* Menggunakan background default (hitam) */
             border-bottom: 1px solid #222;
         }
 
@@ -211,7 +365,8 @@
             transform: translateY(-5px);
         }
 
-        .service-card h4 {
+        /* Sub-konten menggunakan H3 */
+        .service-card h3 {
             font-family: var(--font-head);
             font-size: 22px;
             color: var(--white);
@@ -233,10 +388,6 @@
         }
 
         /* ================= SECTION 2: DAFTAR HARGA ================= */
-        .pricing-section {
-            /* Menggunakan .section-alt di HTML, style ini hanya override spesifik jika perlu */
-        }
-
         .pricing-list {
             max-width: 800px;
             margin: 0 auto;
@@ -254,7 +405,7 @@
             border-bottom: none;
         }
 
-        .pricing-info h5 {
+        .pricing-info h3 {
             font-size: 18px;
             color: var(--white);
             margin-bottom: 5px;
@@ -271,17 +422,20 @@
             color: var(--gold);
             font-weight: bold;
             font-family: var(--font-head);
+            white-space: nowrap;
+            /* Mencegah harga turun baris */
+            margin-left: 20px;
         }
 
         /* ================= CTA ================= */
         .cta {
             background: linear-gradient(to right, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7)),
-                url("https://images.unsplash.com/photo-1621605810052-8094b3f96bfa?q=80&w=2000&auto=format&fit=crop") center/cover fixed;
+                url("img/bg.jpg") center/cover fixed;
             padding: 100px 8%;
             text-align: center;
         }
 
-        .cta h3 {
+        .cta h2 {
             font-family: var(--font-head);
             font-size: 36px;
             margin-bottom: 30px;
@@ -367,27 +521,66 @@
         }
 
         @media (max-width: 768px) {
-            nav {
+
+            /* 1. Navbar Mobile Dropdown Style */
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 70px;
+                /* Tinggi navbar */
+                left: -100%;
+                /* Sembunyikan ke kiri */
                 flex-direction: column;
-                padding: 15px;
-                gap: 15px;
+                background-color: rgba(15, 15, 15, 0.98);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 30px 0;
+                border-bottom: 1px solid #333;
+                gap: 25px;
             }
 
-            nav ul {
-                gap: 20px;
-                font-size: 13px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .nav-menu.active {
+                left: 0;
+                /* Munculkan */
             }
 
-            nav .btn {
-                display: none;
+            .nav-menu ul {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .nav-menu .btn {
+                /* Tombol Booking di dalam menu mobile */
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+            /* 2. Adjust Page Header Padding */
+            .page-header {
+                padding: 120px 5% 50px;
             }
 
             .page-header h2 {
-                font-size: 36px;
+                font-size: 32px;
             }
 
+            /* 3. Adjust Layouts */
             .footer-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -395,6 +588,31 @@
 
             footer {
                 padding: 60px 5% 30px;
+            }
+
+            /* 4. Floating Button Position */
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .float-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
+
+            /* 5. Pricing Item Styling on Mobile */
+            .pricing-item {
+                align-items: flex-start;
+            }
+
+            .pricing-info h3 {
+                font-size: 16px;
+            }
+
+            .pricing-cost {
+                font-size: 18px;
             }
         }
     </style>
@@ -404,15 +622,35 @@
 
     <nav>
         <h1>BARBERSHOP</h1>
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="layanan.html" class="active">Layanan</a></li>
-            <li><a href="barber.html">Barbers</a></li>
-            <li><a href="galeri.html">Galeri Foto</a></li>
-            <li><a href="blog.html">Artikel / Blog</a></li>
-        </ul>
-        <a href="#" class="btn">Booking Now</a>
+
+        <div class="nav-menu" id="navMenu">
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="layanan.html" class="active">Layanan</a></li>
+                <li><a href="barber.html">Barbers</a></li>
+                <li><a href="galeri.html">Galeri Foto</a></li>
+                <li><a href="blog.html">Blog</a></li>
+            </ul>
+            <a href="https://wa.me/62895639068080" target="_blank" class="btn" aria-label="Booking WhatsApp">Booking
+                Now</a>
+        </div>
+
+        <div class="hamburger" id="hamburger" aria-label="Menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
     </nav>
+
+    <div class="floating-buttons">
+        <a href="#" class="float-btn btn-scroll-top" id="scrollTopBtn" onclick="scrollToTop(event)"
+            aria-label="Scroll to top">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" class="float-btn btn-wa" target="_blank" aria-label="Chat via WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <header class="page-header">
         <h2>Layanan & Harga</h2>
@@ -421,34 +659,34 @@
 
     <section class="favorite-section">
         <div class="section-title">
-            <h3>Paket Favorit</h3>
+            <h2>Paket Favorit</h2>
             <span></span>
         </div>
 
         <div class="services-detail">
             <div class="service-card">
-                <h4>Haircut</h4>
+                <h3>Haircut</h3>
                 <p>Potongan rambut detail sesuai bentuk wajah, termasuk cuci rambut dan pijat kepala ringan untuk
                     relaksasi.</p>
                 <div class="service-price">Rp 50K+</div>
             </div>
 
             <div class="service-card">
-                <h4>Hair Styling</h4>
+                <h3>Hair Styling</h3>
                 <p>Penataan rambut profesional menggunakan produk pomade/wax premium untuk tampilan maksimal seharian
                     penuh.</p>
                 <div class="service-price">Rp 60K+</div>
             </div>
 
             <div class="service-card">
-                <h4>Beard Trim</h4>
+                <h3>Beard Trim</h3>
                 <p>Merapikan dan membentuk jenggot serta kumis agar terlihat bersih, rapi, dan maskulin dengan handuk
                     hangat.</p>
                 <div class="service-price">Rp 45K+</div>
             </div>
 
             <div class="service-card">
-                <h4>Kids Haircut</h4>
+                <h3>Kids Haircut</h3>
                 <p>Potongan rambut khusus anak-anak dengan penanganan sabar dan ramah. Termasuk styling agar si kecil
                     tampil keren.</p>
                 <div class="service-price">Rp 40K+</div>
@@ -458,49 +696,49 @@
 
     <section class="pricing-section section-alt">
         <div class="section-title">
-            <h3>Daftar Harga Lengkap</h3>
+            <h2>Daftar Harga Lengkap</h2>
             <span></span>
         </div>
 
         <div class="pricing-list">
             <div class="pricing-item">
                 <div class="pricing-info">
-                    <h5>Regular Haircut</h5>
+                    <h3>Regular Haircut</h3>
                     <span>Potong, Cuci, Styling</span>
                 </div>
                 <div class="pricing-cost">Rp 50K</div>
             </div>
             <div class="pricing-item">
                 <div class="pricing-info">
-                    <h5>Beard Trim & Shave</h5>
+                    <h3>Beard Trim & Shave</h3>
                     <span>Merapikan jenggot & kumis dengan handuk hangat</span>
                 </div>
                 <div class="pricing-cost">Rp 35K</div>
             </div>
             <div class="pricing-item">
                 <div class="pricing-info">
-                    <h5>Hair Coloring (Basic)</h5>
+                    <h3>Hair Coloring (Basic)</h3>
                     <span>Pewarnaan rambut hitam / coklat natural</span>
                 </div>
                 <div class="pricing-cost">Rp 100K+</div>
             </div>
             <div class="pricing-item">
                 <div class="pricing-info">
-                    <h5>Hair Tattoo / Skin Fade</h5>
+                    <h3>Hair Tattoo / Skin Fade</h3>
                     <span>Ukiran rambut artistik</span>
                 </div>
                 <div class="pricing-cost">Rp 75K</div>
             </div>
             <div class="pricing-item">
                 <div class="pricing-info">
-                    <h5>Black Mask Treatment</h5>
+                    <h3>Black Mask Treatment</h3>
                     <span>Mengangkat komedo dan kotoran wajah</span>
                 </div>
                 <div class="pricing-cost">Rp 30K</div>
             </div>
             <div class="pricing-item">
                 <div class="pricing-info">
-                    <h5>Premium Pomade</h5>
+                    <h3>Premium Pomade</h3>
                     <span>Produk styling tambahan (Take Home)</span>
                 </div>
                 <div class="pricing-cost">Rp 85K</div>
@@ -509,9 +747,9 @@
     </section>
 
     <section class="cta">
-        <h3>Sudah Menentukan Pilihan?</h3>
+        <h2>Sudah Menentukan Pilihan?</h2>
         <p style="margin-bottom: 30px; color: #ddd;">Booking slot Anda sekarang dan hindari antrian.</p>
-        <a href="#" class="btn">Booking via WhatsApp</a>
+        <a href="https://wa.me/62895639068080" target="_blank" class="btn" aria-label="Booking">Booking via WhatsApp</a>
     </section>
 
     <footer>
@@ -529,19 +767,19 @@
                     <li><a href="layanan.html">Layanan</a></li>
                     <li><a href="barber.html">Barbers</a></li>
                     <li><a href="galeri.html">Galeri Foto</a></li>
-                    <li><a href="blog.html">Artikel / Blog</a></li>
+                    <li><a href="blog.html">Blog</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>Layanan</h4>
                 <ul>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Regular Haircut</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Beard Trim & Shave</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Coloring (Basic)</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Hair Tattoo / Skin Fade</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Black Mask Treatment</a></li>
-                    <li><a href="javascript:void(0)" style="cursor: default;">Premium Pomade</a></li>
+                    <li><a href="layanan.html">Regular Haircut</a></li>
+                    <li><a href="layanan.html">Beard Trim & Shave</a></li>
+                    <li><a href="layanan.html">Hair Coloring (Basic)</a></li>
+                    <li><a href="layanan.html">Hair Tattoo / Skin Fade</a></li>
+                    <li><a href="layanan.html">Black Mask Treatment</a></li>
+                    <li><a href="layanan.html">Premium Pomade</a></li>
                 </ul>
             </div>
 
@@ -563,7 +801,8 @@
                     <li>📞 0812-3456-7890</li>
                     <li>✉️ hello@barbershop.com</li>
                     <li style="margin-top: 15px;">
-                        <a href="#" style="color: var(--gold); font-weight: bold;">Chat WhatsApp &rarr;</a>
+                        <a href="https://wa.me/62895639068080" style="color: var(--gold); font-weight: bold;">Chat
+                            WhatsApp &rarr;</a>
                     </li>
                 </ul>
             </div>
@@ -573,6 +812,46 @@
             <p>&copy; 2026 Barbershop Modern. All Rights Reserved. Designed with Class.</p>
         </div>
     </footer>
+
+    <script>
+        // === LOGIKA HAMBURGER MENU ===
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("navMenu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+
+        // Tutup menu saat link diklik
+        document.querySelectorAll(".nav-menu a").forEach(n => n.addEventListener("click", () => {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }));
+
+        // === LOGIKA SCROLL TO TOP ===
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        // Ketika user scroll ke bawah 300px, tampilkan tombol
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        }
+
+        // Ketika tombol diklik, scroll ke atas
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
+    </script>
 
 </body>
 

@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REVOLUSI BARBERSHOP // SWISS STYLE</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================================
+           SWISS DESIGN SYSTEM (ARTICLE SPECIFIC)
+           ========================================= */
+        :root {
+            --swiss-white: #FFFFFF;
+            --swiss-black: #111111;
+            --swiss-red: #FF3000;
+            --swiss-muted: #F2F2F2;
+            --border-thick: 4px solid var(--swiss-black);
+            --border-thin: 1px solid var(--swiss-black);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--swiss-white);
+            color: var(--swiss-black);
+            line-height: 1.6;
+        }
+
+        /* --- GLOBAL RESET --- */
+        *,
+        img,
+        .btn,
+        .card {
+            border-radius: 0 !important;
+        }
+
+        a {
+            color: var(--swiss-black);
+            text-decoration: none;
+            border-bottom: 2px solid var(--swiss-red);
+            transition: 0.2s;
+        }
+
+        a:hover {
+            background: var(--swiss-red);
+            color: white;
+        }
+
+        /* --- TYPOGRAPHY --- */
+        h1 {
+            font-weight: 900;
+            letter-spacing: -0.05em;
+            text-transform: uppercase;
+            line-height: 0.9;
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+        }
+
+        h2 {
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            margin-top: 3rem;
+            border-left: 10px solid var(--swiss-red);
+            padding-left: 1rem;
+        }
+
+        h3 {
+            font-weight: 700;
+            margin-top: 2rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* --- COMPONENTS --- */
+        .swiss-border {
+            border: var(--border-thick);
+        }
+
+        .swiss-border-bottom {
+            border-bottom: var(--border-thick);
+        }
+
+        .img-caption {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-left: 4px solid var(--swiss-black);
+            padding-left: 10px;
+            margin-top: 10px;
+            color: var(--swiss-red);
+        }
+
+        /* Blockquote */
+        blockquote {
+            background: var(--swiss-muted);
+            border-left: 8px solid var(--swiss-black);
+            padding: 2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            font-style: italic;
+            margin: 3rem 0;
+        }
+
+        /* Baca Juga Box */
+        .read-also {
+            border: 2px solid var(--swiss-black);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            background: var(--swiss-white);
+            position: relative;
+        }
+
+        .read-also::before {
+            content: 'BACA JUGA:';
+            background: var(--swiss-red);
+            color: white;
+            padding: 2px 10px;
+            font-weight: 800;
+            font-size: 0.8rem;
+            position: absolute;
+            top: -15px;
+            left: 15px;
+        }
+
+        /* TOC Sidebar */
+        .toc-box {
+            background: var(--swiss-muted);
+            border: var(--border-thick);
+            padding: 1.5rem;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .toc-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .toc-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .toc-list a {
+            border-bottom: 1px solid #ccc;
+            display: block;
+            padding: 5px 0;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .toc-list a:hover {
+            border-bottom: 2px solid var(--swiss-red);
+            padding-left: 5px;
+        }
+
+        /* Accordion Custom */
+        .accordion-button {
+            font-weight: 800;
+            text-transform: uppercase;
+            background: white;
+            border: var(--border-thick) !important;
+            color: black;
+            box-shadow: none !important;
+        }
+
+        .accordion-button:not(.collapsed) {
+            background: var(--swiss-black);
+            color: white;
+        }
+
+        .accordion-item {
+            border: none;
+            margin-bottom: 1rem;
+        }
+
+        /* Buttons */
+        .btn-swiss {
+            background: black;
+            color: white;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border: none;
+        }
+
+        .btn-swiss:hover {
+            background: var(--swiss-red);
+            color: white;
+        }
+
+        .btn-share {
+            width: 100%;
+            margin-bottom: 10px;
+            text-align: left;
+            border: 2px solid black;
+            background: white;
+            color: black;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-share:hover {
+            background: black;
+            color: white;
+        }
+
+        /* Texture Pattern */
+        .bg-dots {
+            background-image: radial-gradient(var(--swiss-black) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-light bg-white swiss-border-bottom py-3">
+        <div class="container">
+            <a class="navbar-brand fw-bold bg-black text-white px-3" href="#">SWISS // GROOMING</a>
+            <span class="ms-auto fw-bold text-uppercase d-none d-md-block">Edisi: Januari 2026</span>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <div class="row g-5">
+
+            <div class="col-lg-8">
+
+                <nav aria-label="breadcrumb" class="mb-4">
+                    <ol class="breadcrumb fw-bold text-uppercase small">
+                        <li class="breadcrumb-item"><a href="#" style="border:none">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" style="border:none">Lifestyle</a></li>
+                        <li class="breadcrumb-item active text-danger" aria-current="page">Grooming</li>
+                    </ol>
+                </nav>
+
+                <h1 class="mb-4">Revolusi Gaya Pria: Mengapa Barbershop Modern Adalah Kebutuhan Primer, Bukan Sekadar
+                    Tren</h1>
+
+                <div class="d-block d-lg-none mb-4 border-bottom border-dark pb-2">
+                    <small class="fw-bold">Oleh: Omar Maulana | 08 Jan 2026</small>
+                </div>
+
+                <figure class="mb-5 position-relative">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?q=80&w=2074&auto=format&fit=crop"
+                        class="img-fluid swiss-border w-100" alt="Interior Barbershop Modern dengan kursi kulit klasik">
+                    <figcaption class="img-caption">
+                        Gbr 1. Atmosfer maskulin di Barbershop modern menciptakan ruang ketiga bagi pria.
+                    </figcaption>
+                </figure>
+
+                <div class="article-content">
+                    <p class="lead fw-bold">
+                        Lupakan salon unisex dengan bau obat keriting yang menyengat. Dekade ini menandai kembalinya
+                        kejayaan "The Gentleman’s Club" dalam bentuk Barbershop Modern. Ini bukan hanya tentang
+                        memangkas rambut; ini tentang merebut kembali identitas maskulin yang presisi.
+                    </p>
+                    <p>
+                        Dalam lima tahun terakhir, industri perawatan pria di Indonesia mengalami ledakan eksponensial.
+                        Pria modern tidak lagi puas dengan potongan "asal pendek". Mereka menuntut *fade* yang
+                        gradasinya sehalus sutra, *pompadour* yang menantang gravitasi, dan pengalaman *hot towel shave*
+                        yang meditatif. Artikel ini akan membedah anatomi barbershop modern dan mengapa Anda harus
+                        meninggalkan tukang cukur bawah pohon (kecuali Anda mencari nostalgia).
+                    </p>
+
+                    <div class="read-also">
+                        <a href="#" class="h5 fw-bold text-decoration-none border-0">
+                            <i class="bi bi-arrow-right text-danger"></i> Tren Gaya Rambut 2026: Kembalinya Mullet dan
+                            Buzz Cut
+                        </a>
+                    </div>
+
+                    <h2>Evolusi: Dari Cukur Madura ke Premium Barbershop</h2>
+                    <p>
+                        Sejarah mencatat bahwa tempat cukur adalah pusat komunitas. Namun, di era 90-an dan 2000-an,
+                        pria seringkali "tersesat" ke salon wanita demi mendapatkan layanan cuci rambut yang layak.
+                        Barbershop modern hadir sebagai antitesis dari fenomena tersebut. Mereka menawarkan:
+                    </p>
+                    <ul>
+                        <li><strong>Spesialisasi Teknis:</strong> Barber dilatih khusus untuk struktur tulang wajah dan
+                            jenis rambut pria.</li>
+                        <li><strong>Alat Presisi:</strong> Penggunaan *clippers* dengan berbagai ukuran *guard* untuk
+                            menciptakan *shadow* yang sempurna.</li>
+                        <li><strong>Produk Khusus:</strong> Pomade, clay, dan beard oil, bukan sekadar gel rambut
+                            generik.</li>
+                    </ul>
+
+                    <blockquote>
+                        "Rambut adalah mahkota bagi wanita, tapi bagi pria, potongan rambut yang presisi adalah setelan
+                        jas yang Anda kenakan setiap hari tanpa perlu disetrika."
+                    </blockquote>
+
+                    <h2>Pengalaman Sensorik: Lebih dari Sekadar Gunting</h2>
+                    <p>
+                        Masuk ke barbershop modern adalah pengalaman multi-sensorik. Aroma *bay rum*, suara dengungan
+                        *clipper* yang ritmis, dan handuk panas yang diusapkan ke wajah.
+                    </p>
+
+                    <h3>1. The Hot Towel Shave</h3>
+                    <p>
+                        Ini adalah ritual suci. Handuk panas membuka pori-pori, melembutkan folikel rambut, dan
+                        menenangkan pikiran. Pisau cukur lurus (*straight razor*) di tangan seorang profesional tidak
+                        menakutkan, melainkan memberikan hasil cukur terbersih yang pernah Anda rasakan.
+                    </p>
+
+                    <div class="my-5 p-1 bg-black">
+                        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjM0NTY3ODkwMTIzNDU2Nzg5MDEyMzQ1Njc4OTAxMjM0NTY3OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o7TKrEzvLbsVAud8I/giphy.gif"
+                            alt="Barber working animation" class="img-fluid w-100" style="opacity: 0.8;">
+                        <div class="bg-danger text-white p-2 text-center fw-bold text-uppercase">
+                            Promo: Diskon 20% Member Baru
+                        </div>
+                    </div>
+
+                    <h3>2. Konsultasi Gaya</h3>
+                    <p>
+                        Barber yang baik tidak langsung memotong. Mereka akan bertanya tentang gaya hidup Anda, seberapa
+                        sering Anda memakai helm, dan apakah Anda rajin menata rambut setiap pagi. Komunikasi ini vital.
+                    </p>
+
+                    <div class="read-also">
+                        <a href="#" class="h5 fw-bold text-decoration-none border-0">
+                            <i class="bi bi-arrow-right text-danger"></i> Review Pomade Lokal: Kualitas Internasional
+                            Harga Terjangkau
+                        </a>
+                    </div>
+
+                    <figure class="my-5">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?q=80&w=2070&auto=format&fit=crop"
+                            class="img-fluid swiss-border w-100" alt="Peralatan Barbershop: Gunting dan Clipper">
+                        <figcaption class="img-caption">
+                            Gbr 2. Peralatan steril dan berkualitas adalah standar non-negosiasi.
+                        </figcaption>
+                    </figure>
+
+                    <h2>FAQ: Pertanyaan Umum Pelanggan</h2>
+
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq1">
+                                    BERAPA SERING SAYA HARUS CUKUR?
+                                </button>
+                            </h2>
+                            <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    Untuk mempertahankan gaya *fade* yang tajam, disarankan setiap 2-3 minggu. Untuk
+                                    rambut panjang, 4-6 minggu cukup untuk merapikan ujungnya.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#faq2">
+                                    POMADE VS WAX VS CLAY?
+                                </button>
+                            </h2>
+                            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <strong>Pomade</strong> untuk kilau tinggi dan gaya klimis. <strong>Wax</strong>
+                                    untuk hold sedang. <strong>Clay</strong> untuk hasil *matte* (tidak mengkilap) dan
+                                    natural look.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 class="mt-5">Kesimpulan</h2>
+                    <p>
+                        Berinvestasi pada penampilan bukan tanda narsisme, melainkan bentuk menghargai diri sendiri.
+                        Barbershop modern menyediakan sarana untuk itu. Dengan teknik presisi, suasana maskulin, dan
+                        layanan relaksasi, biaya ekstra yang Anda keluarkan sebanding dengan kepercayaan diri yang Anda
+                        bawa keluar dari pintu barbershop. Temukan barber Anda, dan setialah padanya.
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="toc-box">
+
+                    <div class="mb-5 border-bottom border-dark pb-4">
+                        <span class="text-danger fw-bold text-uppercase mb-2 d-block">Penulis</span>
+                        <div class="d-flex align-items-center gap-3">
+                            <img src="https://ui-avatars.com/api/?name=Omar+Maulana&background=000&color=fff&rounded=false"
+                                alt="Author" style="width: 60px; height: 60px;">
+                            <div>
+                                <h5 class="mb-0 fw-bold text-uppercase">Omar Maulana</h5>
+                                <small class="text-muted">Chief Editor & Grooming Enthusiast</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <span class="fw-bold text-uppercase bg-black text-white px-2 py-1">Isi Artikel</span>
+                            <button class="btn btn-sm btn-outline-dark border-2 fw-bold" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#tocContent">
+                                <i class="bi bi-list"></i>
+                            </button>
+                        </div>
+                        <div class="collapse show" id="tocContent">
+                            <div class="toc-list" id="toc-list">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <span class="fw-bold text-uppercase mb-3 d-block">Bagikan Artikel</span>
+                        <a href="#" class="btn btn-share">
+                            <i class="bi bi-whatsapp text-success fs-4"></i> WhatsApp
+                        </a>
+                        <a href="#" class="btn btn-share">
+                            <i class="bi bi-facebook text-primary fs-4"></i> Facebook
+                        </a>
+                        <a href="#" class="btn btn-share">
+                            <i class="bi bi-twitter-x text-black fs-4"></i> X (Twitter)
+                        </a>
+                    </div>
+
+                    <div class="mt-5 bg-swiss-red p-4 text-white text-center">
+                        <h4 class="fw-black text-uppercase">PROMO JANUARI</h4>
+                        <p class="fw-bold display-4 my-0">50%</p>
+                        <p>HAIR SPA & MASSAGE</p>
+                        <button class="btn bg-white text-danger fw-bold w-100 text-uppercase border-0 mt-2">Klaim
+                            Sekarang</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="swiss-divider my-5 border-top border-4 border-dark pt-5">
+            <h3 class="fw-black text-uppercase mb-4"><span class="bg-black text-white px-2">Artikel Terkait</span></h3>
+
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card h-100 border-2 border-dark">
+                        <img src="https://images.unsplash.com/photo-1593702295094-aea8c5c13d73?q=80&w=1974&auto=format&fit=crop"
+                            class="card-img-top border-bottom border-2 border-dark" alt="Beard Grooming">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title fw-bold text-uppercase">Panduan Merawat Jenggot Agar Tidak Gatal</h5>
+                            <p class="card-text small">Tips memilih beard oil dan cara menyisir yang benar untuk pemula.
+                            </p>
+                            <a href="#" class="btn btn-swiss w-100 mt-2">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-2 border-dark">
+                        <img src="https://images.unsplash.com/photo-1503951914875-befbb7470d6e?q=80&w=2070&auto=format&fit=crop"
+                            class="card-img-top border-bottom border-2 border-dark" alt="Classic Shave">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title fw-bold text-uppercase">Sejarah Pisau Cukur: The Straight Razor</h5>
+                            <p class="card-text small">Mengapa alat cukur klasik ini kembali diminati kaum urban.</p>
+                            <a href="#" class="btn btn-swiss w-100 mt-2">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card h-100 border-2 border-dark">
+                        <img src="https://images.unsplash.com/photo-1559599101-f09722fb4948?q=80&w=2069&auto=format&fit=crop"
+                            class="card-img-top border-bottom border-2 border-dark" alt="Hair Products">
+                        <div class="card-body bg-light">
+                            <h5 class="card-title fw-bold text-uppercase">Review 5 Clay Terbaik 2026</h5>
+                            <p class="card-text small">Rekomendasi produk styling rambut untuk gaya natural matte
+                                finish.</p>
+                            <a href="#" class="btn btn-swiss w-100 mt-2">Baca Selengkapnya</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <footer class="bg-black text-white py-5 border-top border-4 border-danger">
+        <div class="container text-center">
+            <h2 class="fw-black">SWISS // GROOMING</h2>
+            <p class="small text-uppercase text-secondary">Est. 2026 • Malang, Indonesia</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const articleBody = document.querySelector('.article-content');
+            const tocList = document.getElementById('toc-list');
+
+            // Cari semua H2 dan H3 di dalam artikel
+            const headers = articleBody.querySelectorAll('h2, h3');
+
+            if (headers.length > 0) {
+                const ul = document.createElement('ul');
+
+                headers.forEach((header, index) => {
+                    // Berikan ID unik jika belum ada
+                    if (!header.id) {
+                        header.id = `section-${index}`;
+                    }
+
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+
+                    a.href = `#${header.id}`;
+                    a.textContent = header.textContent;
+
+                    // Indentasi untuk H3
+                    if (header.tagName === 'H3') {
+                        li.style.marginLeft = '20px';
+                        li.style.fontSize = '0.85rem';
+                        a.style.color = '#555';
+                    }
+
+                    // Smooth scroll effect
+                    a.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+
+                    li.appendChild(a);
+                    ul.appendChild(li);
+                });
+
+                tocList.appendChild(ul);
+            } else {
+                tocList.innerHTML = '<p class="small text-muted">Tidak ada daftar isi.</p>';
+            }
+        });
+    </script>
+</body>
+
+</html>
