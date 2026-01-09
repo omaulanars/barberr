@@ -145,6 +145,65 @@
             color: var(--gold);
         }
 
+        /* ================= FLOATING BUTTONS ================= */
+        .floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 9999;
+        }
+
+        .float-btn {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+            font-size: 24px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .float-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Tombol WhatsApp */
+        .btn-wa {
+            background-color: #25d366;
+            color: white;
+        }
+
+        .btn-wa:hover {
+            background-color: #1ebc57;
+        }
+
+        /* Tombol Scroll Top */
+        .btn-scroll-top {
+            background-color: var(--gold);
+            color: #000;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+        }
+
+        .btn-scroll-top.show {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+
+        .btn-scroll-top:hover {
+            background-color: #b59020;
+        }
+
         /* ================= NAVBAR ================= */
         nav {
             position: fixed;
@@ -755,6 +814,18 @@
                 flex-direction: column;
                 text-align: center;
             }
+
+            /* Floating Button */
+            .floating-buttons {
+                bottom: 20px;
+                right: 20px;
+            }
+
+            .float-btn {
+                width: 45px;
+                height: 45px;
+                font-size: 20px;
+            }
         }
     </style>
 </head>
@@ -781,6 +852,15 @@
             <span class="bar"></span>
         </div>
     </nav>
+
+    <div class="floating-buttons">
+        <a href="#" class="float-btn btn-scroll-top" id="scrollTopBtn" onclick="scrollToTop(event)">
+            <i class="fas fa-arrow-up"></i>
+        </a>
+        <a href="https://wa.me/62895639068080" class="float-btn btn-wa" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
 
     <div class="blog-wrapper">
 
@@ -1009,6 +1089,29 @@
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
         }));
+
+        // === LOGIKA SCROLL TO TOP ===
+        const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+        window.onscroll = function () {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+                scrollTopBtn.classList.add("show");
+            } else {
+                scrollTopBtn.classList.remove("show");
+            }
+        }
+
+        function scrollToTop(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+        }
     </script>
 
 </body>
